@@ -1,0 +1,22 @@
+[System.Serializable]
+public enum Resources
+{
+    None,
+    Water,
+    Wood,
+    Stone,
+    Foliage,
+    Meat,
+    Fur,
+    Hide,
+    Metal,
+    Bow,
+    Arrow,
+    Knife,
+    Sword,
+    Shield,
+    Axe,
+    Hammer,
+    Anvil,
+    Shelter,
+}

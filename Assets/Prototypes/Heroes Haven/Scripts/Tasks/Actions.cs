@@ -1,0 +1,18 @@
+[System.Serializable]
+public enum Actions
+{
+    None,
+    Idle,
+    GoTo,
+    Gather,
+    Attack,
+    Defend,
+    Craft,
+    Sleep,
+    Deliver,
+    Find,
+    Teach,
+    Learn,
+    Lead,
+    Delegate,
+}
