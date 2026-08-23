@@ -10,10 +10,12 @@ public class StateResult
     public Entity Target;
     public Items Item;
     public HashSet<Entity> ExcludedTargets = new HashSet<Entity>();
+    public ConstraintEvaluation Constraints;
     public bool HasTarget;
     public bool HasDestination;
     public bool HasItem;
     public bool HasExcludedTargets;
+    public bool HasConstraints;
 
     public static StateResult Running = new StateResult{ Status = StateStatus.Running };
     public static StateResult None = new StateResult{ Status = StateStatus.None };

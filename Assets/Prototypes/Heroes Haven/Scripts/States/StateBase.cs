@@ -6,6 +6,7 @@ public class StateBase
     public Task Task;
     public Entity Entity;
     public Animation Animation;
+    public float RemainingTime;
 
     public StateBase(Entity entity)
     {

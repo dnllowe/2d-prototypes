@@ -13,7 +13,7 @@ public class Container : SerializedMonoBehaviour
     /// <param name="item"></param>
     /// <param name="amount"></param>
     /// <returns></returns>
-    public int Take(Items item, int amount)
+    public int Remove(Items item, int amount)
     {
         if (amount <= 0) return 0;
         if (!Items.ContainsKey(item)) return 0;
@@ -30,7 +30,7 @@ public class Container : SerializedMonoBehaviour
     /// <param name="item"></param>
     /// <param name="amount"></param>
     /// <returns></returns>
-    public int Place(Items item, int amount)
+    public int PlaceInside(Items item, int amount)
     {
         if (amount <= 0) return 0;
         var availableSpace = GetAvailableSpace();
@@ -45,14 +45,25 @@ public class Container : SerializedMonoBehaviour
     /// </summary>
     /// <param name="item"></param>
     /// <param name="amount"></param>
-    /// <param name="other"></param>
+    /// <param name="source"></param>
     /// <returns></returns>
-    public int Move(Items item, int amount, Container other)
+    public int TakeFrom(Items item, int amount, Container source)
     {
         if (amount <= 0) return 0;
 
         var availableSpace = GetAvailableSpace();
-        return Place(item, other.Take(item, Mathf.Min(availableSpace, amount)));
+        return PlaceInside(item, source.Remove(item, Mathf.Min(availableSpace, amount)));
+    }
+
+    public bool Use(IEnumerable<Requirement> requirements)
+    {
+        if (!HasRequirements(requirements)) return false;
+        foreach (var requirement in requirements)
+        {
+            Remove(requirement.Item, requirement.Quantity);
+        }
+
+        return true;
     }
 
     public int GetAvailableSpace()
@@ -66,9 +77,9 @@ public class Container : SerializedMonoBehaviour
         return availableSpace;
     }
 
-    public bool HasRequirements(Recipe recipe)
+    public bool HasRequirements(IEnumerable<Requirement> requirements)
     {
-        foreach (var requirement in recipe.Requirements)
+        foreach (var requirement in requirements)
         {
             if (GetQuantity(requirement.Item) < requirement.Quantity) return false;
         }
@@ -82,20 +93,20 @@ public class Container : SerializedMonoBehaviour
         return amount;
     }
 
-    public List<Requirement> GetRequirements(Recipe recipe)
+    public List<Requirement> GetRemainingRequirements(IEnumerable<Requirement> requirements)
     {
-        var requirements = new List<Requirement>();
-        foreach (var requirement in recipe.Requirements)
+        var additionalRequirements = new List<Requirement>();
+        foreach (var requirement in requirements)
         {
             var needs = requirement.Quantity - GetQuantity(requirement.Item);
-            if (needs > 0)  requirements.Add(new Requirement
+            if (needs > 0)  additionalRequirements.Add(new Requirement
             {
                 Item = requirement.Item,
                 Quantity = needs,
             });
         }
 
-        return requirements;
+        return additionalRequirements;
     }
 }
 

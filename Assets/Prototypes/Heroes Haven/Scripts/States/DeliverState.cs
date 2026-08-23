@@ -52,6 +52,7 @@ public class DeliverState : StateBase
                 {
                     name = Item.ToString()
                 };
+                go.transform.position = Entity.transform.position;
                 var itemTag = go.AddComponent<ItemTag>();
                 itemTag.Tag = Item;
             }
@@ -61,7 +62,7 @@ public class DeliverState : StateBase
             var container = Entity.GetComponents<Container>()[0];
             Debug.Log($"Space available: {container.GetAvailableSpace()}");
 
-            var moved = targetContainer.Move(Item, Quantity, container);
+            var moved = targetContainer.TakeFrom(Item, Quantity, container);
             Debug.Log($"Gave {moved}");
         }
 

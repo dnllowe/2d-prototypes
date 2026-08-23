@@ -6,4 +6,6 @@ public enum StateStatus
     Complete,
     NeedsTask,
     Failed,
+    Blocked,
+    Canceled,
 }

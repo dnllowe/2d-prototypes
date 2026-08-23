@@ -18,4 +18,5 @@ public enum ItemCapabilities
     ProvidesFood = 1 << 13,
     QuenchesThirst = 1 << 14,
     Heals = 1 << 15,
+    Projectile = 1 << 16,
 }

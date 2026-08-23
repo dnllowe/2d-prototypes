@@ -5,17 +5,19 @@ public class GoToState : StateBase
 {
     public Entity Target;
     public Vector3 Destination;
-    public float TravelSpeed = 0.1f;
+    public float TravelSpeed = 0.3f;
 
     public bool ReachedDestination;
 
     public GoToState(Entity entity) : base(entity) {}
     public static GoToState FromTask(Task task, Entity entity)
     {
-        var goToState = new GoToState(entity);
-        goToState.Target = task.Target;
-        goToState.Destination = task.Destination;
-        goToState.Task = task;
+        var goToState = new GoToState(entity)
+        {
+            Target = task.Target,
+            Destination = task.Destination,
+            Task = task
+        };
 
         return goToState;
     }

@@ -6,4 +6,5 @@ public class Requirement
     public ItemMaterials Material;
     public ItemGrades Grade;
     public int Quantity;
+    public bool ConsumedAfterUse;
 }

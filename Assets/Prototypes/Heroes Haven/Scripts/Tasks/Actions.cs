@@ -15,4 +15,7 @@ public enum Actions
     Learn,
     Lead,
     Delegate,
+    Heal,
+    Feed,
+    Repair,
 }

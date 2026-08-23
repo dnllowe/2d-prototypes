@@ -18,10 +18,17 @@ public class StateMachine : SerializedMonoBehaviour
     void Update()
     {
         var result = CurrentState.Update(Time.deltaTime);
+
         if (result.Status == StateStatus.NeedsTask)
         {
             SuspendedTasks.Push(CurrentState.Task);
             ChangeState(result.Task);
+            return;
+        }
+        if (result.Status == StateStatus.Blocked)
+        {
+            SuspendedTasks.Push(CurrentState.Task);
+            ChangeState(ResolveConstraintState.FromConstraint(result.Constraints, CurrentState.Task, CurrentState.Entity));
             return;
         }
         if (result.Status == StateStatus.Complete)
@@ -43,6 +50,8 @@ public class StateMachine : SerializedMonoBehaviour
         {
             case Actions.None: 
             case Actions.Attack:
+                Attack(task);
+                break;
             case Actions.Sleep:
             case Actions.Idle:
                 Idle();
@@ -122,5 +131,11 @@ public class StateMachine : SerializedMonoBehaviour
     public void Find(Task task)
     {
         ChangeState(FindState.FromTask(task, entity));
+    }
+
+    [Button]
+    public void Attack(Task task)
+    {
+        ChangeState(AttackState.FromTask(task, entity));
     }
 }

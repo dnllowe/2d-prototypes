@@ -19,11 +19,12 @@ public static partial class TaggedItems
     }
 }
 
-public class ItemTag : MonoBehaviour
+public class ItemTag : SerializedMonoBehaviour
 {
     public Items Tag;
     public ItemConditions Conditions;
     public ItemCapabilities Capabilities;
+    public Dictionary<ItemCapabilities, List<Requirement>> UsageRequirements = new Dictionary<ItemCapabilities, List<Requirement>>();
     public ItemMaterials Materials;
     public ItemGrades Grade;
     public Entity Entity;
