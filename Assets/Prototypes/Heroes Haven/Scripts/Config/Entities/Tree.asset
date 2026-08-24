@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 293112ec82e5ca047b3d62de5e7977bf, type: 3}
+  m_Name: Tree
+  m_EditorClassIdentifier: Assembly-CSharp::EntityDefinitionComponent
+  EntityDefinition:
+    Position:
+      EntityId: 0
+      X: 0
+      Y: 0
+      Z: 0
+    StateMachine:
+      GameConfig: {}
+      CurrentState:
+        Task:
+          Action: 0
+          Item:
+            Properties:
+              Type: 0
+              Conditions: 0
+              Capabilities: 0
+              Material: 0
+              Grade: 0
+            Quantity: 1
+            MinimumGrade: 0
+          Target:
+            Id: 0
+          TaskContext:
+            RootAction: 0
+            RootTarget: {fileID: 0}
+            RootDestination: {x: 0, y: 0, z: 0}
+        Entity:
+          Id: 0
+        Animation:
+          Frames: []
+          FrameRate: 0
+          MinFps: 0
+          MaxFps: 0
+        RemainingTime: 0
+      StateHistory: []
+    Item:
+      Type: 0
+      Properties:
+        Type: 0
+        Conditions: 0
+        Capabilities: 0
+        Material: 0
+        Grade: 0
+    Resource:
+      EntityId: 0
+    Container:
+      EntityId: 0
+      Entries: []
+      Capacity: 0
+    WorldITem:
+      EntityId: 0
+      Properties:
+        Type: 0
+        Conditions: 0
+        Capabilities: 0
+        Material: 0
+        Grade: 0

@@ -131,7 +131,6 @@ GameObject:
   - component: {fileID: 437835109}
   - component: {fileID: 437835113}
   - component: {fileID: 437835114}
-  - component: {fileID: 437835115}
   - component: {fileID: 437835117}
   - component: {fileID: 437835116}
   m_Layer: 0
@@ -228,6 +227,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84dcbe504ba0edb45adbd65b26df799d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  Entity:
+    Id: 0
 --- !u!114 &437835114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,72 +259,21 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: Items
+    - Name: Container
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[Items, Assembly-CSharp],[System.Int32,
-        mscorlib]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[Items, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
+      Data: 0|Container, Assembly-CSharp
+    - Name: EntityId
+      Entry: 3
+      Data: 0
+    - Name: Entries
+      Entry: 6
+      Data: 
+    - Name: Capacity
+      Entry: 3
       Data: 0
     - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
       Entry: 8
       Data: 
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 5
-    - Name: $v
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 6
-    - Name: $v
-      Entry: 3
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-  Capacity: 0
---- !u!114 &437835115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 437835108}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e7f0606a9ce42a41a3cd4263faed859, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Health
-  Current: 1
-  Total: 0
-  DestroyOnDepleted: 0
 --- !u!114 &437835116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,12 +286,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8a727b45580fde4eb1fa8f0d5b19d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTag
-  Tag: 6
-  Conditions: 0
-  Capabilities: 8322
-  Materials: 4
-  Grade: 1
-  Entity: {fileID: 0}
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  WorldItem:
+    EntityId: 0
+    Properties:
+      Type: 0
+      Conditions: 0
+      Capabilities: 0
+      Material: 0
+      Grade: 0
 --- !u!114 &437835117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,12 +315,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8a727b45580fde4eb1fa8f0d5b19d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTag
-  Tag: 5
-  Conditions: 1
-  Capabilities: 8320
-  Materials: 0
-  Grade: 1
-  Entity: {fileID: 0}
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  WorldItem:
+    EntityId: 0
+    Properties:
+      Type: 0
+      Conditions: 0
+      Capabilities: 0
+      Material: 0
+      Grade: 0
 --- !u!1 &482034694
 GameObject:
   m_ObjectHideFlags: 0
@@ -6223,7 +6204,6 @@ GameObject:
   - component: {fileID: 1387582280}
   - component: {fileID: 1387582287}
   - component: {fileID: 1387582285}
-  - component: {fileID: 1387582284}
   - component: {fileID: 1387582286}
   - component: {fileID: 1387582288}
   m_Layer: 0
@@ -6309,21 +6289,6 @@ Transform:
   - {fileID: 1400840447}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1387582284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1387582279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e7f0606a9ce42a41a3cd4263faed859, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Health
-  Current: 0
-  Total: 5
-  DestroyOnDepleted: 0
 --- !u!114 &1387582285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6345,33 +6310,21 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: Items
+    - Name: Container
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[Items, Assembly-CSharp],[System.Int32,
-        mscorlib]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[Items, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
+      Data: 0|Container, Assembly-CSharp
+    - Name: EntityId
+      Entry: 3
       Data: 0
-    - Name: 
-      Entry: 13
+    - Name: Entries
+      Entry: 6
       Data: 
+    - Name: Capacity
+      Entry: 3
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-  Capacity: 100
 --- !u!114 &1387582286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6393,9 +6346,18 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
+    - Name: stateMachine
+      Entry: 7
+      Data: 0|StateMachine, Assembly-CSharp
+    - Name: Config
+      Entry: 6
+      Data: 
+    - Name: CurrentState
+      Entry: 6
+      Data: 
     - Name: SuspendedTasks
       Entry: 7
-      Data: 0|System.Collections.Generic.Stack`1[[Task, Assembly-CSharp]], mscorlib
+      Data: 1|System.Collections.Generic.Stack`1[[Task, Assembly-CSharp]], mscorlib
     - Name: 
       Entry: 12
       Data: 0
@@ -6405,24 +6367,22 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: StateHistory
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[StateBase, Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   Config: {fileID: 11400000, guid: ab1a9f676daa79b4db00aca0f69d77c2, type: 2}
-  CurrentState:
-    Task:
-      Action: 0
-      Item: 0
-      Target: {fileID: 0}
-      Destination: {x: 0, y: 0, z: 0}
-      Value: 0
-      TaskContext:
-        RootAction: 0
-        RootTarget: {fileID: 0}
-        RootDestination: {x: 0, y: 0, z: 0}
-    Entity: {fileID: 0}
-    Animation:
-      Frames: []
-      FrameRate: 0
-      MinFps: 0
-      MaxFps: 0
 --- !u!114 &1387582287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6435,6 +6395,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84dcbe504ba0edb45adbd65b26df799d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  Entity:
+    Id: 5
 --- !u!114 &1387582288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6447,19 +6418,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c879030cf0aa304faf3439dc446b1c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TaskManager
-  Config: {fileID: 11400000, guid: ab1a9f676daa79b4db00aca0f69d77c2, type: 2}
-  CurrentTask:
-    Action: 0
-    Item: 0
-    Target: {fileID: 0}
-    Destination: {x: 0, y: 0, z: 0}
-    Value: 0
-    TaskContext:
-      RootAction: 0
-      RootTarget: {fileID: 0}
-      RootDestination: {x: 0, y: 0, z: 0}
-  StateMachine: {fileID: 0}
-  Container: {fileID: 0}
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: TaskManager
+      Entry: 7
+      Data: 0|TaskManager, Assembly-CSharp
+    - Name: Config
+      Entry: 6
+      Data: 
+    - Name: CurrentTask
+      Entry: 6
+      Data: 
+    - Name: StateMachine
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
 --- !u!1001 &1400840446
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6729,6 +6711,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84dcbe504ba0edb45adbd65b26df799d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  Entity:
+    Id: 7
 --- !u!114 &1541730174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6750,45 +6743,21 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: Items
+    - Name: Container
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[Items, Assembly-CSharp],[System.Int32,
-        mscorlib]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[Items, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
+      Data: 0|Container, Assembly-CSharp
+    - Name: EntityId
+      Entry: 3
+      Data: 0
+    - Name: Entries
+      Entry: 6
+      Data: 
+    - Name: Capacity
+      Entry: 3
       Data: 0
     - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
       Entry: 8
       Data: 
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 3
-    - Name: $v
-      Entry: 3
-      Data: 100
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-  Capacity: 0
 --- !u!114 &1541730175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6801,12 +6770,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8a727b45580fde4eb1fa8f0d5b19d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTag
-  Tag: 3
-  Conditions: 0
-  Capabilities: 1025
-  Materials: 2
-  Grade: 1
-  Entity: {fileID: 0}
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  WorldItem:
+    EntityId: 0
+    Properties:
+      Type: 0
+      Conditions: 0
+      Capabilities: 0
+      Material: 0
+      Grade: 0
 --- !u!1 &1656978889
 GameObject:
   m_ObjectHideFlags: 0
@@ -6915,6 +6895,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84dcbe504ba0edb45adbd65b26df799d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  Entity:
+    Id: 8
 --- !u!114 &1656978895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6936,57 +6927,21 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: Items
+    - Name: Container
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[Items, Assembly-CSharp],[System.Int32,
-        mscorlib]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[Items, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
+      Data: 0|Container, Assembly-CSharp
+    - Name: EntityId
+      Entry: 3
+      Data: 0
+    - Name: Entries
+      Entry: 6
+      Data: 
+    - Name: Capacity
+      Entry: 3
       Data: 0
     - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
       Entry: 8
       Data: 
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 2
-    - Name: $v
-      Entry: 3
-      Data: 100
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 4
-    - Name: $v
-      Entry: 3
-      Data: 100
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-  Capacity: 0
 --- !u!114 &1656978896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6999,12 +6954,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8a727b45580fde4eb1fa8f0d5b19d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTag
-  Tag: 4
-  Conditions: 0
-  Capabilities: 4224
-  Materials: 0
-  Grade: 0
-  Entity: {fileID: 0}
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  WorldItem:
+    EntityId: 0
+    Properties:
+      Type: 0
+      Conditions: 0
+      Capabilities: 0
+      Material: 0
+      Grade: 0
 --- !u!114 &1656978897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7017,12 +6983,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8a727b45580fde4eb1fa8f0d5b19d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTag
-  Tag: 2
-  Conditions: 0
-  Capabilities: 5248
-  Materials: 1
-  Grade: 1
-  Entity: {fileID: 0}
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  WorldItem:
+    EntityId: 0
+    Properties:
+      Type: 0
+      Conditions: 0
+      Capabilities: 0
+      Material: 0
+      Grade: 0
 --- !u!1 &1921784304
 GameObject:
   m_ObjectHideFlags: 0
@@ -7102,6 +7079,61 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1933666152
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1933666154}
+  - component: {fileID: 1933666153}
+  m_Layer: 0
+  m_Name: Camp
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1933666153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933666152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84dcbe504ba0edb45adbd65b26df799d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Entity
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  Entity:
+    Id: 9
+--- !u!4 &1933666154
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1933666152}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2098537901
 GameObject:
   m_ObjectHideFlags: 0
@@ -7116,6 +7148,7 @@ GameObject:
   - component: {fileID: 2098537906}
   - component: {fileID: 2098537908}
   - component: {fileID: 2098537907}
+  - component: {fileID: 2098537909}
   m_Layer: 0
   m_Name: Bush
   m_TagString: Untagged
@@ -7210,6 +7243,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84dcbe504ba0edb45adbd65b26df799d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Entity
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  Entity:
+    Id: 10
 --- !u!114 &2098537906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7231,57 +7275,21 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: Items
+    - Name: Container
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[Items, Assembly-CSharp],[System.Int32,
-        mscorlib]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[Items, Assembly-CSharp]],
-        mscorlib
-    - Name: 
-      Entry: 12
+      Data: 0|Container, Assembly-CSharp
+    - Name: EntityId
+      Entry: 3
+      Data: 0
+    - Name: Entries
+      Entry: 6
+      Data: 
+    - Name: Capacity
+      Entry: 3
       Data: 0
     - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
       Entry: 8
       Data: 
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 2
-    - Name: $v
-      Entry: 3
-      Data: 20
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 4
-    - Name: $v
-      Entry: 3
-      Data: 20
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-  Capacity: 0
 --- !u!114 &2098537907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7294,12 +7302,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8a727b45580fde4eb1fa8f0d5b19d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTag
-  Tag: 4
-  Conditions: 0
-  Capabilities: 4224
-  Materials: 0
-  Grade: 1
-  Entity: {fileID: 0}
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  WorldItem:
+    EntityId: 0
+    Properties:
+      Type: 0
+      Conditions: 0
+      Capabilities: 0
+      Material: 0
+      Grade: 0
 --- !u!114 &2098537908
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7312,12 +7331,79 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8a727b45580fde4eb1fa8f0d5b19d42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemTag
-  Tag: 2
-  Conditions: 0
-  Capabilities: 5248
-  Materials: 1
-  Grade: 1
-  Entity: {fileID: 0}
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  WorldItem:
+    EntityId: 0
+    Properties:
+      Type: 0
+      Conditions: 0
+      Capabilities: 0
+      Material: 0
+      Grade: 0
+--- !u!114 &2098537909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098537901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a24ce92b34637124a8fe23b826702962, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ResourceComponent
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: Resource
+      Entry: 7
+      Data: 0|Resource, Assembly-CSharp
+    - Name: EntityId
+      Entry: 3
+      Data: 0
+    - Name: ExtractableItems
+      Entry: 7
+      Data: 1|System.Collections.Generic.Dictionary`2[[Items, Assembly-CSharp],[Extraction,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 2|System.Collections.Generic.EnumEqualityComparer`1[[Items, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -7326,6 +7412,7 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 482034696}
   - {fileID: 1921784307}
+  - {fileID: 1933666154}
   - {fileID: 1387582281}
   - {fileID: 1656978891}
   - {fileID: 1541730171}
