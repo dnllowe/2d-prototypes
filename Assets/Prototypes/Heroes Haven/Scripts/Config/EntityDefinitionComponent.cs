@@ -1,3 +1,4 @@
+using System;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EntityDefinitionComponent", menuName = "Scriptable Objects/EntityDefinitionComponent")]
 public class EntityDefinitionComponent : SerializedScriptableObject
 {
-    [OdinSerialize]
+    [OdinSerialize, NonSerialized]
     public EntityDefinition EntityDefinition;    
+    public Sprite Sprite;
+    public Color Tint;
 }

@@ -1,12 +1,8 @@
-using Unity.Scripting.LifecycleManagement;
-
-[AutoStaticsCleanup]
-public static partial class IdProvider
+public class IdProvider
 {
-    [AutoStaticsCleanup]
-    static uint nextId = 0;
+    uint nextId = 0;
 
-    public static uint GetNextId()
+    public uint GetNextId()
     {
         var id = nextId;
         nextId++;
