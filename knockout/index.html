@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Knock Out</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' fill='%23c45c26'/></svg>"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="app">
+      <header class="masthead">
+        <h1>Knock Out</h1>
+        <p class="tag">The edge takes everyone. Set up, then knock.</p>
+      </header>
+
+      <section id="config-screen" class="panel">
+        <form id="config-form">
+          <div class="fields">
+            <label>
+              Grid size
+              <input id="cfg-n" type="number" min="3" max="16" value="6" />
+            </label>
+            <label>
+              Pieces each
+              <input id="cfg-k" type="number" min="1" max="128" value="5" />
+            </label>
+          </div>
+
+          <fieldset class="segment">
+            <legend>Opponent</legend>
+            <label><input type="radio" name="opp" value="hotseat" /> Hotseat</label>
+            <label><input type="radio" name="opp" value="simple" checked /> Simple AI</label>
+            <label><input type="radio" name="opp" value="thoughtful" /> Thoughtful</label>
+            <label><input type="radio" name="opp" value="complex" /> Complex</label>
+            <label><input type="radio" name="opp" value="aggressive" /> Aggressive</label>
+            <label><input type="radio" name="opp" value="patient" /> Patient</label>
+          </fieldset>
+
+          <p id="config-error" class="error" hidden></p>
+          <button type="submit" class="primary">Start</button>
+
+          <details class="more-settings">
+            <summary>More settings</summary>
+            <div class="more-settings-body">
+              <label class="check">
+                <input id="cfg-color-place" type="checkbox" />
+                Place only on your color
+              </label>
+
+              <fieldset class="segment">
+                <legend>Setup</legend>
+                <label>
+                  <input type="radio" name="setup" value="free" checked />
+                  Each player places
+                </label>
+                <label>
+                  <input type="radio" name="setup" value="formation" />
+                  Mirrored formation
+                </label>
+              </fieldset>
+
+              <div id="cfg-free-opts">
+                <label class="check">
+                  <input id="cfg-reveal" type="checkbox" checked />
+                  Second player sees first player's pieces
+                </label>
+              </div>
+
+              <div id="cfg-formation-opts" hidden>
+                <fieldset class="segment">
+                  <legend>Formation</legend>
+                  <label>
+                    <input type="radio" name="formation-src" value="player" checked />
+                    Player picks (mirrored live)
+                  </label>
+                  <label>
+                    <input type="radio" name="formation-src" value="preset" />
+                    Game picks a formation
+                  </label>
+                </fieldset>
+              </div>
+
+              <fieldset class="segment">
+                <legend>If both claim the same square</legend>
+                <label>
+                  <input type="radio" name="overlap" value="block" checked />
+                  Become a block
+                </label>
+                <label>
+                  <input type="radio" name="overlap" value="eliminate" />
+                  Both eliminated
+                </label>
+                <label>
+                  <input type="radio" name="overlap" value="replace" />
+                  Take turns re-placing
+                </label>
+              </fieldset>
+
+              <fieldset class="segment">
+                <legend>Win condition</legend>
+                <label>
+                  <input type="radio" name="win" value="elimination" checked />
+                  Eliminate all opponent pieces
+                </label>
+                <label>
+                  <input type="radio" name="win" value="knockouts" />
+                  First to N knock-offs
+                </label>
+                <label>
+                  <input type="radio" name="win" value="reduceTo" />
+                  First to leave opponent with N pieces
+                </label>
+              </fieldset>
+
+              <label id="cfg-win-target-wrap" hidden>
+                N
+                <input id="cfg-win-target" type="number" min="0" max="127" value="3" />
+              </label>
+
+              <fieldset class="segment">
+                <legend>Knock strength</legend>
+                <label>
+                  <input type="radio" name="knock" value="simple" checked />
+                  Simple (one attacker)
+                </label>
+                <label>
+                  <input type="radio" name="knock" value="cumulative" />
+                  Cumulative (friendly stack force)
+                </label>
+              </fieldset>
+
+              <label class="check">
+                <input id="cfg-board-change" type="checkbox" checked />
+                Require board change (block adjacent no-op slides)
+              </label>
+
+              <fieldset class="segment" id="cfg-push-block">
+                <legend>Push</legend>
+                <label class="check">
+                  <input id="cfg-push" type="checkbox" checked />
+                  Push stacks (run-up required)
+                </label>
+                <p class="field-note">
+                  Cross at least one empty square into a 2+ stack to shove it one square if it has room. Adjacent contact never pushes. Pushing a piece off the edge eliminates it.
+                </p>
+                <fieldset class="segment" id="cfg-push-landing">
+                  <legend>After a push, slider</legend>
+                  <label>
+                    <input type="radio" name="push-landing" value="impact" checked />
+                    Stays at impact (gap)
+                  </label>
+                  <label>
+                    <input type="radio" name="push-landing" value="follow" />
+                    Follows next to the stack
+                  </label>
+                </fieldset>
+              </fieldset>
+
+              <fieldset class="segment">
+                <legend>Actions per turn</legend>
+                <label>
+                  <input type="radio" name="actions" value="fixed" checked />
+                  Always 3
+                </label>
+                <label>
+                  <input type="radio" name="actions" value="perPiece" />
+                  Min of 3 and pieces left
+                </label>
+              </fieldset>
+
+              <fieldset class="segment">
+                <legend>Player blocks</legend>
+                <label>
+                  Blocks per player
+                  <input id="cfg-player-blocks-n" type="number" min="-1" max="99" value="3" />
+                </label>
+                <p class="field-note">
+                  During play, spend an action to place a block on any empty square (−1 = infinite, 0 = off). Setup placement is pieces only.
+                </p>
+              </fieldset>
+
+              <label class="check">
+                <input id="cfg-first-placer-first" type="checkbox" checked />
+                First player to place also goes first in play
+              </label>
+
+              <label class="check">
+                <input id="cfg-draw-one" type="checkbox" checked />
+                Draw when it is 1 vs 1
+              </label>
+
+              <fieldset class="segment" id="cfg-spawn-block">
+                <legend>Neutral block spawns</legend>
+                <label class="check">
+                  <input id="cfg-spawn" type="checkbox" />
+                  Spawn blocks over time
+                </label>
+                <label>
+                  Every N full rounds
+                  <input id="cfg-spawn-every" type="number" min="1" max="99" value="2" />
+                </label>
+                <label>
+                  Warning lasts N rounds
+                  <input id="cfg-spawn-warn" type="number" min="0" max="99" value="1" />
+                </label>
+                <p class="field-note">
+                  Marked squares become permanent blocks. A piece still there is eliminated (no knock-off credit). Spawns alternate which player just acted, so neither side always reacts first.
+                </p>
+              </fieldset>
+            </div>
+          </details>
+        </form>
+      </section>
+
+      <section id="color-screen" class="panel" hidden>
+        <p class="prompt">Player 1, pick your color.</p>
+        <div id="color-picks" class="color-picks"></div>
+      </section>
+
+      <section id="game-screen" hidden>
+        <div id="hud" class="hud"></div>
+        <p id="skip-banner" class="skip-banner" hidden></p>
+        <div class="table">
+          <div class="board-stack">
+            <div id="board-outer" class="board-outer" tabindex="0">
+              <div id="board-wrap" class="board-wrap" role="grid"></div>
+              <div id="board-labels" class="board-labels" aria-hidden="true"></div>
+            </div>
+            <div id="board-actions" class="board-actions"></div>
+          </div>
+        </div>
+        <p class="hint" id="hint"></p>
+      </section>
+    </div>
+
+    <div id="overlay" class="overlay" hidden>
+      <div class="overlay-card">
+        <h2 id="overlay-title"></h2>
+        <p id="overlay-body"></p>
+        <button type="button" id="overlay-again" class="primary">Play again</button>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
