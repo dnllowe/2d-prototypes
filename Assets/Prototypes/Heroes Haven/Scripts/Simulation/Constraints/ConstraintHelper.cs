@@ -22,9 +22,9 @@ public static class ConstraintHelper
         return (a & b) == a;
     }
 
-    public static Constraints GetMissingTargetConstraint(Entity target)
+    public static Constraints GetMissingTargetConstraint(uint target)
     {
-        if (target.Id == Constants.NullEntityId) return Constraints.MissingTarget;
+        if (target == Constants.NullEntityId) return Constraints.MissingTarget;
         return Constraints.None;
     }
 
@@ -37,18 +37,18 @@ public static class ConstraintHelper
         return Constraints.None;
     }
 
-    public static Constraints GetTargetOutOfRangeConstraint(Entity source, Entity target)
+    public static Constraints GetTargetOutOfRangeConstraint(World world, uint source, uint target)
     {
-        var sourcePosition = PositionRegistry.Components.Get(source.Id);
-        var targetPosition = PositionRegistry.Components.Get(target.Id);
+        var sourcePosition = world.PositionRegistry.Get(source);
+        var targetPosition = world.PositionRegistry.Get(target);
         var distance = Position.Distance(sourcePosition, targetPosition);
         if (distance > 1) return Constraints.TargetOutOfRange;
         return Constraints.None;
     }
 
-    public static Constraints GetAliveConstraint(Entity target)
+    public static Constraints GetAliveConstraint(World world, uint target)
     {
-        var health = HealthRegistry.Components.Get(target.Id);
+        var health = world.HealthRegistry.Get(target);
         if (health != null && health.Current > 0) return Constraints.Alive;
         return Constraints.None;
     }

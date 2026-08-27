@@ -3,8 +3,15 @@ using UnityEngine;
 
 public class StateMachineComponent : SerializedMonoBehaviour
 {
-    public CurrentConfig Config;
-    [SerializeField] StateMachine stateMachine = new StateMachine();
+    public WorldComponent WorldComponent;
+
+    [SerializeField] StateMachine stateMachine;
+
+    void Awake()
+    {
+        // TODO: get an ID
+        stateMachine = new StateMachine(WorldComponent.World, 0);
+    }
 
     void Update()
     {

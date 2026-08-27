@@ -51,6 +51,27 @@ The goal is what the person wants to do, possibly a native Task. The need is wha
 Skill and Knowledge
 What is known and what can be done (or to what quality can it be done)
 
-Efficiency
+## Efficiency
 
 Claimed / In Use -- to prevent NPCs from trying to occupy the same activity, space, resource, etc
+
+
+Think through CampFire provides heat, provides light with CampFire Burning. Those two capabilities are active when the state on the instance is burning. Maybe ActiveConditions
+
+An item's utility will become the Capability Value * Normalized Skill (0.5 - 1.5) + Grade Modifier (0.8 - 1.2) * Condition Modifier.
+
+And it measures use. So an Axe cutting against a tree is the rate at which is cuts, where the tree defines its extraction time.
+
+effectiveCapability =
+    baseCapability
+    * gradeModifier
+    * conditionModifier
+    * skillModifier;
+
+extractionTime =
+    extraction.Work / effectiveCapability;
+
+F = .8, C = 1.0, A = 1.2, S = 1.3
+
+## Resource Scarcity
+- Resources will exist infinitely, but their extraction time and limit of one person per item makes the time commitment create opportunity costs

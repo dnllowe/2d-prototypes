@@ -4,20 +4,12 @@ using System;
 public class ResolveConstraintState : StateBase
 {
     public Constraints Constraints;
-    public ResolveConstraintState(Entity entity) : base (entity) {}
-    public static ResolveConstraintState FromConstraint(Constraints constraint, Task task, Entity entity)
+    public ResolveConstraintState(World world, uint entityId, Task task, Constraints constraints) : base(world, entityId, task)
     {
-        UnityEngine.Debug.Log("I need to solve this...");
-        var resolver = new ResolveConstraintState(entity)
-        {
-            Constraints = constraint,
-            Task = task
-        };
-
-        return resolver;
+        Constraints = constraints;
     }
 
-    public override StateResult Update(float deltaTime)
+    public override StateResult Tick(float deltaTime)
     {
         foreach (var constraint in ConstraintHelper.GetAllConstraints())
         {

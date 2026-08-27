@@ -1,0 +1,194 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94d9c88f2e4406c43aa76227a3bd8ec8, type: 3}
+  m_Name: Bow
+  m_EditorClassIdentifier: Assembly-CSharp::ItemDefinitionComponent
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: ItemDefinition
+      Entry: 7
+      Data: 0|ItemDefinition, Assembly-CSharp
+    - Name: Properties
+      Entry: 7
+      Data: 1|ItemProperties, Assembly-CSharp
+    - Name: Type
+      Entry: 3
+      Data: 9
+    - Name: Conditions
+      Entry: 3
+      Data: 0
+    - Name: Capabilities
+      Entry: 3
+      Data: 129
+    - Name: Uses
+      Entry: 7
+      Data: 2|System.Collections.Generic.Dictionary`2[[ItemCapabilities, Assembly-CSharp],[CapabilityUse,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 3|System.Collections.Generic.EnumEqualityComparer`1[[ItemCapabilities,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 7
+      Data: 4|CapabilityUse, Assembly-CSharp
+    - Name: Value
+      Entry: 3
+      Data: 1
+    - Name: MinimumEffectiveRange
+      Entry: 4
+      Data: 3
+    - Name: MaximumEffectiveRange
+      Entry: 4
+      Data: 10
+    - Name: ItemRequirements
+      Entry: 7
+      Data: 5|System.Collections.Generic.List`1[[ItemRequirement, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 6|ItemRequirement, Assembly-CSharp
+    - Name: Properties
+      Entry: 7
+      Data: 7|ItemProperties, Assembly-CSharp
+    - Name: Type
+      Entry: 3
+      Data: 10
+    - Name: Conditions
+      Entry: 3
+      Data: 0
+    - Name: Capabilities
+      Entry: 3
+      Data: 0
+    - Name: Uses
+      Entry: 7
+      Data: 8|System.Collections.Generic.Dictionary`2[[ItemCapabilities, Assembly-CSharp],[CapabilityUse,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 9|System.Collections.Generic.EnumEqualityComparer`1[[ItemCapabilities,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Material
+      Entry: 3
+      Data: 0
+    - Name: Grade
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: MinimumCapabilityValues
+      Entry: 7
+      Data: 10|System.Collections.Generic.Dictionary`2[[ItemCapabilities, Assembly-CSharp],[System.Int32,
+        mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 9
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Quantity
+      Entry: 3
+      Data: 1
+    - Name: MinimumGrade
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: AllRequiredConditions
+      Entry: 3
+      Data: 0
+    - Name: AnyForbiddenConditions
+      Entry: 3
+      Data: 128
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Material
+      Entry: 3
+      Data: 1
+    - Name: Grade
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 

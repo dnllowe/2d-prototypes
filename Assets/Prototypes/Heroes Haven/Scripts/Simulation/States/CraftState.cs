@@ -1,30 +1,27 @@
+using System;
 using UnityEngine;
 
 public class CraftState : StateBase
 {
-    public Container Container;
-    public Recipe Recipe;
+    public CraftState(World world, uint entityId, Task task) : base(world, entityId, task) {}
 
-    public CraftState(Entity entity) : base(entity) {}
-    public static CraftState FromTask(Task task, Entity entity, Recipe recipe)
+    public override StateResult Tick(float deltaTime)
     {
-        var craft = new CraftState(entity)
+        var foundRecipe = world.Config.RecipeDefinitions.TryGetValue(Task.Item.ItemTypeRequirement, out var recipeDefinition);
+        if (!foundRecipe)
         {
-            Container = ContainerRegistry.Components.Get(entity.Id),
-            Recipe = recipe,
-            Task = task,
-            RemainingTime = recipe.TimeToProduce
-        };
+            throw new Exception($"No recipe found for {Task.Item.ItemTypeRequirement}");
+        }
 
-        return craft;
-    }
-
-    public override StateResult Update(float deltaTime)
-    {
-        var requirements = Container.GetRemainingRequirements(Recipe.Requirements);
+        var container = world.ContainerRegistry.Get(EntityId);
+        if (container == null)
+        {
+            UnityEngine.Debug.Log("No container to look for craft items");
+        }
+        var requirements = container.GetRemainingRequirements(recipeDefinition.Recipe.Requirements);
         if (requirements.Count > 0) Debug.Log("We're going to need a few things...");
 
-        if (!Container.HasRequirements(Recipe.Requirements)) return new StateResult
+        if (!container.HasRequirements(recipeDefinition.Recipe.Requirements)) return new StateResult
         {
             Status = StateStatus.NeedsTask,
             Task = new Task
@@ -38,27 +35,21 @@ public class CraftState : StateBase
         RemainingTime -= deltaTime;
         if (RemainingTime > 0) return StateResult.Running;
 
-        var go = new GameObject
-        {
-            name = Task.Item.ToString(),
-        };
-
-        var position = PositionRegistry.Components.Get(Entity.Id);
-        go.transform.position = new Vector3(position.X, position.Y, position.Z);
-
-        var entity = new Entity();go.AddComponent<EntityComponent>();
-        var itemTag = go.AddComponent<ItemTag>();
-        itemTag.WorldItem.Properties = Task.Item.Properties;
+        // TODO: request the item from the world
         var item = new Item
         {
-            Properties = Task.Item.Properties
+            Properties = world.Config.ItemDefinitions[Task.Item.ItemTypeRequirement].Properties.Copy(),
         };
-        Container.PlaceInside(item);
+        var kept = container.PlaceInside(item);
+        if (!kept)
+        {
+            // TODO: drop on ground as world item
+        }
 
         return new StateResult
         {
             Status = StateStatus.Complete,
-            Target = entity,
+            Target = item.EntityId,
             HasTarget = true,
         };
     }

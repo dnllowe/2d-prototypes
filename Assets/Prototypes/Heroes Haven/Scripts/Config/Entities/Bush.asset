@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 293112ec82e5ca047b3d62de5e7977bf, type: 3}
+  m_Name: Bush
+  m_EditorClassIdentifier: Assembly-CSharp::EntityDefinitionComponent
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  EntityDefinition:
+    Position:
+      Assigned: 1
+      StartX: 0
+      StartY: 0
+      StartZ: 0
+    StateMachine:
+      Assigned: 0
+    WorldItem:
+      Assigned: 0
+      Item: 0
+    Resource:
+      Assigned: 1
+      ExtractableItems:
+      - Item: 2
+        Count: 20
+        TimeToExtract: 2
+        ItemsNeededForExtraction:
+        - Properties:
+            Type: 0
+            Conditions: 0
+            Capabilities: 64
+            Material: 0
+            Grade: 0
+          Quantity: 1
+          MinimumGrade: 0
+      - Item: 4
+        Count: 20
+        TimeToExtract: 2
+        ItemsNeededForExtraction: []
+    Container:
+      Assigned: 0
+      Capacity: 0
+    Health:
+      Assigned: 0
+      MaxHealth: 0

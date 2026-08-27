@@ -13,4 +13,5 @@ public enum ItemConditions
     Damaged = 1 << 6,
     Broken = 1 << 7,
     Wet = 1 << 8,
+    Burning = 1 << 9,
 }

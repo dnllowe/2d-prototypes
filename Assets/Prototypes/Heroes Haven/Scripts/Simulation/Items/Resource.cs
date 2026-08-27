@@ -5,10 +5,7 @@ using Sirenix.Serialization;
 [System.Serializable]
 public class Resource : Component
 {
-    public Resource(uint entityId) : base(entityId)
-    {
-        ResourceRegistry.Components.Register(this, entityId);
-    }
+    public Resource(uint entityId) : base(entityId) {}
 
     [NonSerialized, OdinSerialize]
     public Dictionary<Items, Extraction> ExtractableItems = new Dictionary<Items, Extraction>();
@@ -17,7 +14,7 @@ public class Resource : Component
     {
         foreach (var requirement in requirements)
         {
-            if (GetQuantity(requirement.Properties.Type) < requirement.Quantity) return false;
+            if (GetQuantity(requirement.ItemTypeRequirement) < requirement.Quantity) return false;
         }
 
         return true;
@@ -34,7 +31,7 @@ public class Resource : Component
         var additionalRequirements = new List<ItemRequirement>();
         foreach (var requirement in requirements)
         {
-            var needs = requirement.Quantity - GetQuantity(requirement.Properties.Type);
+            var needs = requirement.Quantity - GetQuantity(requirement.ItemTypeRequirement);
             if (needs > 0)  additionalRequirements.Add(requirement.CopyWithNewQuantity(needs));
         }
 

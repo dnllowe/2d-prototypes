@@ -2,15 +2,5 @@
 [System.Serializable]
 public class ListenState : StateBase
 {
-    public ListenState(Entity entity) : base(entity) {}
-
-    public static ListenState FromTask(Task task, Entity entity)
-    {
-        var listen = new ListenState(entity)
-        {
-            Task = task
-        };
-
-        return listen;
-    }
+    public ListenState(World world, uint entityId, Task task) : base(world, entityId, task) {}
 }

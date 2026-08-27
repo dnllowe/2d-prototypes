@@ -3,15 +3,21 @@ using System.Collections.Generic;
 [System.Serializable]
 public class StateMachine
 {
-    public GameConfig GameConfig;
-    Entity entity;
+    public World World;
+    uint EntityId;
     public StateBase CurrentState;
     public Stack<Task> SuspendedTasks = new Stack<Task>();
     public List<StateBase> StateHistory = new List<StateBase>();
 
+    public StateMachine(World world, uint entityId)
+    {
+        World = world;
+        EntityId = entityId;
+    }
+
     public void Update(float deltaTime)
     {
-        var result = CurrentState.Update(deltaTime);
+        var result = CurrentState.Tick(deltaTime);
 
         if (result.Status == StateStatus.NeedsTask)
         {
@@ -22,7 +28,7 @@ public class StateMachine
         if (result.Status == StateStatus.Blocked)
         {
             SuspendedTasks.Push(CurrentState.Task);
-            ChangeState(ResolveConstraintState.FromConstraint(result.Constraints, CurrentState.Task, CurrentState.Entity));
+            ChangeState(new ResolveConstraintState(World, EntityId, CurrentState.Task, result.Constraints));
             return;
         }
         if (result.Status == StateStatus.Complete)
@@ -80,30 +86,30 @@ public class StateMachine
 
     public void GoTo(Task task)
     {
-        var goToState = GoToState.FromTask(task, entity);
+        var goToState = new GoToState(World, EntityId, task);
         ChangeState(goToState);
     }
 
     public void Gather(Task task)
     {
-        var gather = GatherState.FromTask(task, entity);
+        var gather = new GatherState(World, EntityId, task);
         ChangeState(gather);
     }
 
     public void Idle()
     {
-        ChangeState(new IdleState(entity));
+        ChangeState(new IdleState(World, EntityId, new Task()));
     }
 
     public void Deliver(Task task)
     {
-        var delivery = DeliverState.FromTask(task, entity);
+        var delivery = new DeliverState(World, EntityId, task);
         ChangeState(delivery);
     }
 
     public void Speak(List<string> dialogue)
     {
-        var dialogueState = new DialogueState(entity);
+        var dialogueState = new DialogueState(World, EntityId, new Task());
         dialogueState.SetDialogue(dialogue);
 
         ChangeState(dialogueState);
@@ -111,24 +117,17 @@ public class StateMachine
 
     public void Craft(Task task)
     {
-        var hasRecipe = GameConfig.RecipeDefinitions.Recipes.TryGetValue(task.Item.Properties.Type, out var recipe);
-        if (!hasRecipe)
-        {
-            UnityEngine.Debug.LogWarning($"No recipe for ${task.Item}");
-            return;
-        }
-
-        var craft = CraftState.FromTask(task, entity, recipe.Recipe);
+        var craft = new CraftState(World, EntityId, task);
         ChangeState(craft);
     }
 
     public void Find(Task task)
     {
-        ChangeState(FindState.FromTask(task, entity));
+        ChangeState(new FindState(World, EntityId, task));
     }
 
     public void Attack(Task task)
     {
-        ChangeState(AttackState.FromTask(task, entity));
+        ChangeState(new AttackState(World, EntityId, task));
     }
 }

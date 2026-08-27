@@ -1,9 +1,9 @@
 [System.Serializable]
 public class FindState : StateBase
 {
-    public FindState(Entity entity) : base(entity) {}
+    public FindState(World world, uint entityId, Task task) : base(world, entityId, task) {}
 
-    public override StateResult Update(float deltaTime)
+    public override StateResult Tick(float deltaTime)
     {
         var searchResults = SearchUtility.FindItemCandidates(Task.Item);
         if (searchResults.FoundWorldItems())
@@ -11,13 +11,13 @@ public class FindState : StateBase
             return new StateResult
             {
                 Status = StateStatus.NeedsTask,
-                Target = searchResults.WorldItems[0].Entity,
+                Target = searchResults.WorldItems[0].EntityId,
                 HasTarget = true,
                 Task = new Task
                 {
                     Action = Actions.Gather,
                     Item = Task.Item,
-                    Target = searchResults.WorldItems[0].Entity,
+                    Target = searchResults.WorldItems[0].EntityId,
                 }
             };
         }
@@ -27,13 +27,13 @@ public class FindState : StateBase
             return new StateResult
             {
                 Status = StateStatus.NeedsTask,
-                Target = searchResults.ContainerItems[0].Entity,
+                Target = searchResults.ContainerItems[0].EntityId,
                 HasTarget = true,
                 Task = new Task
                 {
                     Action = Actions.Gather,
                     Item = Task.Item,
-                    Target = searchResults.ContainerItems[0].Entity,
+                    Target = searchResults.ContainerItems[0].EntityId,
                 }
             };
         }
@@ -43,27 +43,17 @@ public class FindState : StateBase
             return new StateResult
             {
                 Status = StateStatus.NeedsTask,
-                Target = searchResults.ResourceItems[0].Entity,
+                Target = searchResults.ResourceItems[0].EntityId,
                 HasTarget = true,
                 Task = new Task
                 {
                     Action = Actions.Extract,
                     Item = Task.Item,
-                    Target = searchResults.ResourceItems[0].Entity,
+                    Target = searchResults.ResourceItems[0].EntityId,
                 }
             };
         }
 
         return StateResult.Canceled;
-    }
-
-    public static FindState FromTask(Task task, Entity entity)
-    {
-        var find = new FindState(entity)
-        {
-            Task = task
-        };
-
-        return find;
     }
 }

@@ -14,7 +14,7 @@ public class Task
     /// <summary>
     /// The target
     /// </summary>
-    public Entity Target;
+    public uint Target;
     /// <summary>
     /// Targets identified to be blocked and therefore ignored
     /// </summary>

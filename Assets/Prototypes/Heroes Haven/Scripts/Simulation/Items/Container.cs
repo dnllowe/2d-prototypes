@@ -5,10 +5,7 @@ using System.Linq;
 [System.Serializable]
 public class Container : Component
 {
-    public Container(uint entityId) : base(entityId)
-    {
-        ContainerRegistry.Components.Register(this, entityId);
-    }
+    public Container(uint entityId) : base(entityId) {}
 
     public List<Item> Entries = new List<Item>();
     public int Capacity;
@@ -215,18 +212,22 @@ public class Container : Component
     /// <summary>
     /// Uses the items required by the supplied requirements.
     /// Currently removes all matched items.
-    ///
-    /// Consumption behavior can be added here later.
     /// </summary>
     public bool Use(IEnumerable<ItemRequirement> requirements)
     {
         var match = MatchRequirements(requirements);
 
-        if (!match.IsSatisfied) return false;
+        if (!match.IsSatisfied)
+            return false;
 
-        foreach (var matchedItems in match.Matches.Values)
+        foreach (var pair in match.Matches)
         {
-            foreach (var item in matchedItems)
+            var requirement = pair.Key;
+
+            if (!requirement.ConsumedAfterUse)
+                continue;
+
+            foreach (var item in pair.Value)
             {
                 Entries.Remove(item);
             }
@@ -239,12 +240,23 @@ public class Container : Component
     {
         var specificity = 0;
 
-        if (requirement.Properties.Type != Items.None) specificity += 10;
-        if (requirement.Properties.Material != ItemMaterials.None) specificity += 5;
-        if (requirement.Properties.Conditions != ItemConditions.None) specificity += 3;
-        if (requirement.Properties.Capabilities != ItemCapabilities.None) specificity += 3;
-        if (requirement.MinimumGrade != ItemGrades.None) specificity += 2;
-        if (requirement.MinimumCapabilityValues != null) specificity += requirement.MinimumCapabilityValues.Count * 2;
+        if (requirement.ItemTypeRequirement != Items.None)
+            specificity += 10;
+
+        if (requirement.MaterialRequirement != ItemMaterials.None)
+            specificity += 5;
+
+        if (requirement.RequiredConditions != ItemConditions.None)
+            specificity += 3;
+
+        if (requirement.ForbiddenConditions != ItemConditions.None)
+            specificity += 3;
+
+        if (requirement.MinimumGrade != ItemGrades.None)
+            specificity += 2;
+
+        if (requirement.MinimumRequiredCapabilityValues != null)
+            specificity += requirement.MinimumRequiredCapabilityValues.Count * 3;
 
         return specificity;
     }

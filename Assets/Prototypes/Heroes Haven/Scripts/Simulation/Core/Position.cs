@@ -7,21 +7,13 @@ public class Position : Component
 
     public Position() : base(Constants.NullEntityId) {}
 
-    public Position(uint entityId) : base(entityId)
-    {
-        PositionRegistry.Components.Register(this, entityId);
-    }
+    public Position(uint entityId) : base(entityId) {}
 
     public Position(float x, float y, float z) : base(Constants.NullEntityId)
     {
         X = x;
         Y = y;
         Z = z;
-    }
-
-    public void Register(uint entityId)
-    {
-        PositionRegistry.Components.Register(this, entityId);
     }
 
     public void MoveBy(Position position)

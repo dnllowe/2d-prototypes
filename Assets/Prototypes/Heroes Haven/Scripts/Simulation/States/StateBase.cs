@@ -2,13 +2,16 @@
 public class StateBase
 {
     public Task Task;
-    public Entity Entity;
+    protected World world;
+    public uint EntityId;
     public Animation Animation;
     public float RemainingTime;
 
-    public StateBase(Entity entity)
+    public StateBase(World world, uint entityId, Task task)
     {
-        Entity = entity;
+        this.world = world;
+        EntityId = entityId;
+        Task = task;
     }
 
     /// <summary>
@@ -16,7 +19,7 @@ public class StateBase
     /// </summary>
     /// <param name="deltaTime"></param>
     /// <returns></returns>
-    public virtual StateResult Update(float deltaTime)
+    public virtual StateResult Tick(float deltaTime)
     {
         return StateResult.None;
     }

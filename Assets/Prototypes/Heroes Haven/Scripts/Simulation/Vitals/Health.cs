@@ -11,7 +11,6 @@ public class Health : Component
 
     public Health(uint entityId) : base(entityId)
     {
-        HealthRegistry.Components.Register(this, entityId);
         Current = Total;
     }
 

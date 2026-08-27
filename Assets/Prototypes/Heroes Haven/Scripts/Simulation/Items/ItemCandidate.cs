@@ -1,7 +1,7 @@
 [System.Serializable]
 public class ItemCandidate
 {
-    public Entity Entity;
+    public uint EntityId;
     public ItemSources Source;
     public Items Item;
     public int Quantity;

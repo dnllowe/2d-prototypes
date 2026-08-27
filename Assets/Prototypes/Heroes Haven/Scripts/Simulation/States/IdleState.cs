@@ -1,8 +1,8 @@
 public class IdleState : StateBase
 {
-    public IdleState(Entity entity) : base(entity) {}
+    public IdleState(World world, uint entityId, Task task) : base(world, entityId, task) {}
 
-    public override StateResult Update(float deltaTime)
+    public override StateResult Tick(float deltaTime)
     {
         return StateResult.Running;
     }

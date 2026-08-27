@@ -3,20 +3,11 @@ using UnityEngine;
 // TODO: use Container or World based on Find results
 public class GatherState : StateBase
 {
-    public GatherState(Entity entity) : base(entity) {}
-    public static GatherState FromTask(Task task, Entity entity)
-    {
-        var gather = new GatherState(entity)
-        {
-            Task = task
-        };
+    public GatherState(World world, uint entityId, Task task) : base(world, entityId, task) {}
 
-        return gather;
-    }
-
-    public override StateResult Update(float deltaTime)
+    public override StateResult Tick(float deltaTime)
     {
-        var constraints = GatherConstraints.Get(Entity, Task);
+        var constraints = GatherConstraints.Get(world, EntityId, Task);
         if (constraints != Constraints.None) return new StateResult
         {
             Status = StateStatus.Blocked,
@@ -28,11 +19,11 @@ public class GatherState : StateBase
 
         if (RemainingTime > 0) return StateResult.Running;
 
-        var container = ContainerRegistry.Components.Get(Entity.Id);
+        var container = world.ContainerRegistry.Get(EntityId);
         Debug.Log($"Space available: {container.GetAvailableSpace()}");
-        var targetContainer = ContainerRegistry.Components.Get(Task.Target.Id);
+        var targetContainer = world.ContainerRegistry.Get(Task.Target);
 
-        var moved = container.TakeFrom(Task.Item.Properties.Type, Task.Item.Quantity, targetContainer);
+        var moved = container.TakeFrom(Task.Item.ItemTypeRequirement, Task.Item.Quantity, targetContainer);
         Debug.Log($"Took {moved}");
 
         return new StateResult

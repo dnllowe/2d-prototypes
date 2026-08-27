@@ -8,28 +8,9 @@ public class DialogueState : StateBase
     [SerializeField] List<string> dialogue = new List<string>();
     [SerializeField] int index;
 
-    public DialogueState(Entity entity) : base(entity)
-    {
-        // text = entity.gameObject.GetComponent<TextBoxUI>();
-        // if (text == null)
-        // {
-        //     text = entity.gameObject.GetComponentInChildren<TextBoxUI>();
-        // }
-    }
+    public DialogueState(World world, uint entityId, Task task) : base(world, entityId, task) {}
 
-    public static DialogueState FromTask(Task task, Entity entity, List<string> toSay)
-    {
-        var dialogueState = new DialogueState(entity)
-        {
-            Task = task,
-            dialogue = toSay
-        };
-
-        return dialogueState;
-    }
-
-
-    public override StateResult Update(float deltaTime)
+    public override StateResult Tick(float deltaTime)
     {
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {

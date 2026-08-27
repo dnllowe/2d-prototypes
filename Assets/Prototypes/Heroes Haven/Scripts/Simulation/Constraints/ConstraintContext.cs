@@ -1,7 +1,7 @@
 [System.Serializable]
 public class ConstraintContext
 {
-    public EntityComponent Target;
-    public EntityComponent Source;
+    public uint Target;
+    public uint Source;
     public Task Task;
 }

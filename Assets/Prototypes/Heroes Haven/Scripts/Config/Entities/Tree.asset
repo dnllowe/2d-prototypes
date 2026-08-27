@@ -12,60 +12,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 293112ec82e5ca047b3d62de5e7977bf, type: 3}
   m_Name: Tree
   m_EditorClassIdentifier: Assembly-CSharp::EntityDefinitionComponent
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   EntityDefinition:
     Position:
-      EntityId: 0
-      X: 0
-      Y: 0
-      Z: 0
+      Assigned: 1
+      StartX: 0
+      StartY: 0
+      StartZ: 0
     StateMachine:
-      GameConfig: {}
-      CurrentState:
-        Task:
-          Action: 0
-          Item:
-            Properties:
-              Type: 0
-              Conditions: 0
-              Capabilities: 0
-              Material: 0
-              Grade: 0
-            Quantity: 1
-            MinimumGrade: 0
-          Target:
-            Id: 0
-          TaskContext:
-            RootAction: 0
-            RootTarget: {fileID: 0}
-            RootDestination: {x: 0, y: 0, z: 0}
-        Entity:
-          Id: 0
-        Animation:
-          Frames: []
-          FrameRate: 0
-          MinFps: 0
-          MaxFps: 0
-        RemainingTime: 0
-      StateHistory: []
-    Item:
-      Type: 0
-      Properties:
-        Type: 0
-        Conditions: 0
-        Capabilities: 0
-        Material: 0
-        Grade: 0
+      Assigned: 0
+    WorldItem:
+      Assigned: 0
+      Item: 0
     Resource:
-      EntityId: 0
+      Assigned: 1
+      ExtractableItems:
+      - Item: 2
+        Count: 100
+        TimeToExtract: 2
+        ItemsNeededForExtraction:
+        - Properties:
+            Type: 0
+            Conditions: 0
+            Capabilities: 64
+            Material: 0
+            Grade: 0
+          Quantity: 1
+          MinimumGrade: 0
+      - Item: 4
+        Count: 100
+        TimeToExtract: 2
+        ItemsNeededForExtraction: []
     Container:
-      EntityId: 0
-      Entries: []
+      Assigned: 0
       Capacity: 0
-    WorldITem:
-      EntityId: 0
-      Properties:
-        Type: 0
-        Conditions: 0
-        Capabilities: 0
-        Material: 0
-        Grade: 0
+    Health:
+      Assigned: 0
+      MaxHealth: 0

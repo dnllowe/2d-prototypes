@@ -5,7 +5,7 @@ public class StateResult
 {
     public StateStatus Status;
     public Task Task;
-    public Entity Target;
+    public uint Target;
     public bool HasTarget;
     public Constraints Constraints;
     public bool HasConstraints;

@@ -2,20 +2,11 @@ using UnityEngine;
 
 public class DeliverState : StateBase
 {
-    public DeliverState(Entity entity) : base(entity) {}
-    public static DeliverState FromTask(Task task, Entity entity)
-    {
-        var deliver = new DeliverState(entity)
-        {
-            Task = task
-        };
+    public DeliverState(World world, uint entityId, Task task) : base(world, entityId, task) {}
 
-        return deliver;
-    }
-
-    public override StateResult Update(float deltaTime)
+    public override StateResult Tick(float deltaTime)
     {
-        var constraints = DeliverConstraints.Get(Entity, Task);
+        var constraints = DeliverConstraints.Get(world, EntityId, Task);
         if (constraints != Constraints.None) return new StateResult
         {
             Status = StateStatus.Blocked,
@@ -24,28 +15,29 @@ public class DeliverState : StateBase
         };
 
         // Delivering to a location
-        var targetContainer = ContainerRegistry.Components.Get(Task.Target.Id);
+        var targetContainer = world.ContainerRegistry.Get(Task.Target);
         if (targetContainer == null)
         {
             Debug.Log("No container, dropping the items here");
 
-            var position = PositionRegistry.Components.Get(Entity.Id);
-            for (var i = 0; i < Task.Item.Quantity; i++)
-            {
-                var go = new GameObject
-                {
-                    name = Task.Item.Properties.Type.ToString()
-                };
-                go.transform.position = new Vector3(position.X, position.Y, position.Z);
-                var itemTag = go.AddComponent<ItemTag>();
-                itemTag.WorldItem.Properties = Task.Item.Properties;
-            }
+            // TODO -- spawn WorldItem
+            var position = world.PositionRegistry.Get(EntityId);
+            // for (var i = 0; i < Task.Item.Quantity; i++)
+            // {
+            //     var go = new GameObject
+            //     {
+            //         name = Task.Item.ItemTypeRequirement.ToString()
+            //     };
+            //     go.transform.position = new Vector3(position.X, position.Y, position.Z);
+            //     var itemTag = go.AddComponent<ItemTag>();
+            //     itemTag.WorldItem.Properties = WTask.Item.I;
+            // }
         }
         else
         {
             Debug.Log($"Space available: {targetContainer.GetAvailableSpace()}");
 
-            var moved = targetContainer.TakeFrom(Task.Item.Properties.Type, Task.Item.Quantity, targetContainer);
+            var moved = targetContainer.TakeFrom(Task.Item.ItemTypeRequirement, Task.Item.Quantity, targetContainer);
             Debug.Log($"Gave {moved}");
         }
 

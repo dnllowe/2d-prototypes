@@ -1,19 +1,25 @@
 using System.Collections.Generic;
-using Sirenix.Serialization;
+using Sirenix.OdinInspector;
 
 [System.Serializable]
 public class ItemProperties
 {
     public Items Type;
     public ItemConditions Conditions;
-    public ItemCapabilities Capabilities;
+    public ItemCapabilities CachedCapabilities;
 
-    [OdinSerialize]
-    public Dictionary<ItemCapabilities, float> CapabilityValues = new Dictionary<ItemCapabilities, float>();
-    [OdinSerialize]
-    public Dictionary<ItemCapabilities, List<ItemRequirement>> UsageRequirements = new Dictionary<ItemCapabilities, List<ItemRequirement>>();
+    [OnValueChanged(nameof(RebuildCachedCapabilities), IncludeChildren = true)]
+    public Dictionary<ItemCapabilities, CapabilityUse> Uses = new Dictionary<ItemCapabilities, CapabilityUse>();
     public ItemMaterials Material;
     public ItemGrades Grade;
+
+    void RebuildCachedCapabilities()
+    {
+        CachedCapabilities = ItemCapabilities.None;
+
+        foreach (var capability in Uses.Keys)
+            CachedCapabilities |= capability;
+    }
 
     public bool HasConditions(ItemConditions conditions)
     {
@@ -32,23 +38,34 @@ public class ItemProperties
 
     public bool HasCapabilities(ItemCapabilities capabilities)
     {
-        return (Capabilities & capabilities) == capabilities;
-    }
-
-    public void AddCapabilities(ItemCapabilities capabilities)
-    {
-        Capabilities |= capabilities;
-    }
-
-    public void RemoveCapabilities(ItemCapabilities capabilities)
-    {
-        Capabilities &= ~capabilities;
+        return (CachedCapabilities & capabilities) == capabilities;
     }
 
     public float GetCapabilityValue(ItemCapabilities capability)
     {
-        return CapabilityValues.TryGetValue(capability, out var value)
-            ? value
+        return Uses.TryGetValue(capability, out var use)
+            ? use.Value
             : 0;
+    }
+
+    public ItemProperties Copy()
+    {
+        var copy = new ItemProperties
+        {
+            Type = Type,
+            Conditions = Conditions,
+            Material = Material,
+            Grade = Grade,
+            Uses = new Dictionary<ItemCapabilities, CapabilityUse>()
+        };
+
+        foreach (var (capability, use) in Uses)
+        {
+            copy.Uses[capability] = use?.Copy();
+        }
+
+        copy.RebuildCachedCapabilities();
+
+        return copy;
     }
 }
