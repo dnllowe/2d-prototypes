@@ -15,7 +15,7 @@ public class StateMachineComponent : SerializedMonoBehaviour
 
     void Update()
     {
-        stateMachine.Update(Time.deltaTime);
+        stateMachine.Tick(Time.deltaTime);
     }
 
     public void ChangeState(Task task)

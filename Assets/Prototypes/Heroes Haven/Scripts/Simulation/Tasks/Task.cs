@@ -18,7 +18,7 @@ public class Task
     /// <summary>
     /// Targets identified to be blocked and therefore ignored
     /// </summary>
-    public HashSet<Entity> ExcludedTargets = new HashSet<Entity>();
+    public HashSet<uint> ExcludedTargets = new HashSet<uint>();
     // public ConstraintContext Constraint;
     /// <summary>
     /// High level understanding of the root task

@@ -9,7 +9,7 @@ public class StateResult
     public bool HasTarget;
     public Constraints Constraints;
     public bool HasConstraints;
-    public HashSet<Entity> ExcludedTargets = new HashSet<Entity>();
+    public HashSet<uint> ExcludedTargets = new HashSet<uint>();
     public bool HasExcludedTargets;
 
     public static StateResult Running = new StateResult{ Status = StateStatus.Running };

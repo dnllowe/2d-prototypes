@@ -15,7 +15,7 @@ public class StateMachine
         EntityId = entityId;
     }
 
-    public void Update(float deltaTime)
+    public void Tick(float deltaTime)
     {
         var result = CurrentState.Tick(deltaTime);
 

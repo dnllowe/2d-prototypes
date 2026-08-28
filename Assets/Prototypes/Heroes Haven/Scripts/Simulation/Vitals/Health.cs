@@ -1,5 +1,6 @@
 using System;
 
+[System.Serializable]
 public class Health : Component
 {
     public int Current;
