@@ -6,7 +6,7 @@ using UnityEngine;
 public class WorldComponent : SerializedMonoBehaviour
 {
     public CurrentConfig CurrentConfig;
-    [OdinSerialize, NonSerialized] public World World;
+    [OdinSerialize, NonSerialized] public World World = new World();
 
     public void Awake()
     {
@@ -17,5 +17,22 @@ public class WorldComponent : SerializedMonoBehaviour
     public void Update()
     {
         World.Tick(Time.deltaTime);
+    }
+
+    [Button]
+    public void Initialize(WorldState state)
+    {
+        World.Initialize(state);
+        InitializeFromState(state);
+    }
+
+    public void InitializeFromState(WorldState state)
+    {
+        foreach (var item in state.WorldItems)
+        {
+
+        }
+
+
     }
 }

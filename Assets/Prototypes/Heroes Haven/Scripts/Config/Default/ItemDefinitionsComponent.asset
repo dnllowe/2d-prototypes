@@ -12,3 +12,168 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fc69c84d5b87584ba629abbe92ba90c, type: 3}
   m_Name: ItemDefinitionsComponent
   m_EditorClassIdentifier: Assembly-CSharp::ItemDefinitionsComponent
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 1149874c7fb0e424db7f0dba42bdd98c, type: 2}
+    - {fileID: 11400000, guid: 6c8f9833f1ed1934f977789c6bd705de, type: 2}
+    - {fileID: 11400000, guid: 2ca057c1de801574d8d597f294f12337, type: 2}
+    - {fileID: 11400000, guid: 2f2067ed9bfede64285068262adc6a95, type: 2}
+    - {fileID: 11400000, guid: 1c5badcb6a782fd40ad2a611b7241fce, type: 2}
+    - {fileID: 11400000, guid: 903be168a14b69d4ab62d2febbfffcc3, type: 2}
+    - {fileID: 11400000, guid: 01f6638234fd4fc49a0e5a6e460ab5c9, type: 2}
+    - {fileID: 11400000, guid: dba7f36ec45656949bf67e9a1c1914fa, type: 2}
+    - {fileID: 11400000, guid: 9bcec019df097ad488660541c04a05b9, type: 2}
+    - {fileID: 11400000, guid: bc5e5373fd30d51429eefa58bfbee541, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: ItemDefinitions
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[Items, Assembly-CSharp],[ItemDefinitionComponent,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[Items, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 10
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 3
+    - Name: $v
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 4
+    - Name: $v
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 5
+    - Name: $v
+      Entry: 10
+      Data: 4
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 6
+    - Name: $v
+      Entry: 10
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 7
+    - Name: $v
+      Entry: 10
+      Data: 6
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 8
+    - Name: $v
+      Entry: 10
+      Data: 7
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 9
+    - Name: $v
+      Entry: 10
+      Data: 8
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 10
+    - Name: $v
+      Entry: 10
+      Data: 9
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 

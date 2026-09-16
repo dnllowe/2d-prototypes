@@ -2,4 +2,6 @@
 public enum BodyTypes
 {
     None,
+    Feminine,
+    Masculine,
 }

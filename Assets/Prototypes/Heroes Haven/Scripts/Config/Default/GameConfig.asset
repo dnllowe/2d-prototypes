@@ -12,4 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38151b460d3a3f8488c2c96c8216e8cb, type: 3}
   m_Name: GameConfig
   m_EditorClassIdentifier: Assembly-CSharp::GameConfig
-  RecipeDefinitions: {fileID: 11400000, guid: 2866fae89914ae140b2d7b007b56d912, type: 2}
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 7580ad6d22695a245a8ddfbea87daa47, type: 2}
+    - {fileID: 11400000, guid: 2866fae89914ae140b2d7b007b56d912, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: ItemDefinitions
+      Entry: 10
+      Data: 0
+    - Name: RecipeDefinitions
+      Entry: 10
+      Data: 1
+  MaterialViewsComponent: {fileID: 11400000, guid: d8bb5e0c989f95c438822e38ba5e3142, type: 2}
+  Animations: {fileID: 11400000, guid: a158cc58b5eee9a499aad49e35f9ceff, type: 2}

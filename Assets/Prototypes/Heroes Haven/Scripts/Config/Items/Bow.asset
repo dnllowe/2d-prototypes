@@ -33,9 +33,9 @@ MonoBehaviour:
     - Name: Conditions
       Entry: 3
       Data: 0
-    - Name: Capabilities
+    - Name: CachedCapabilities
       Entry: 3
-      Data: 129
+      Data: 4225
     - Name: Uses
       Entry: 7
       Data: 2|System.Collections.Generic.Dictionary`2[[ItemCapabilities, Assembly-CSharp],[CapabilityUse,
@@ -55,7 +55,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 3
     - Name: 
       Entry: 7
       Data: 
@@ -84,75 +84,33 @@ MonoBehaviour:
     - Name: 
       Entry: 7
       Data: 6|ItemRequirement, Assembly-CSharp
-    - Name: Properties
-      Entry: 7
-      Data: 7|ItemProperties, Assembly-CSharp
-    - Name: Type
+    - Name: MinimumRequiredCapabilityValues
+      Entry: 6
+      Data: 
+    - Name: CachedRequiredCapabilities
+      Entry: 3
+      Data: 0
+    - Name: ItemTypeRequirement
       Entry: 3
       Data: 10
-    - Name: Conditions
+    - Name: RequiredConditions
       Entry: 3
       Data: 0
-    - Name: Capabilities
+    - Name: ForbiddenConditions
+      Entry: 3
+      Data: 128
+    - Name: MaterialRequirement
       Entry: 3
       Data: 0
-    - Name: Uses
-      Entry: 7
-      Data: 8|System.Collections.Generic.Dictionary`2[[ItemCapabilities, Assembly-CSharp],[CapabilityUse,
-        Assembly-CSharp]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 9|System.Collections.Generic.EnumEqualityComparer`1[[ItemCapabilities,
-        Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Material
-      Entry: 3
-      Data: 0
-    - Name: Grade
-      Entry: 3
-      Data: 0
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: MinimumCapabilityValues
-      Entry: 7
-      Data: 10|System.Collections.Generic.Dictionary`2[[ItemCapabilities, Assembly-CSharp],[System.Int32,
-        mscorlib]], mscorlib
-    - Name: comparer
-      Entry: 9
-      Data: 9
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Quantity
-      Entry: 3
-      Data: 1
     - Name: MinimumGrade
       Entry: 3
       Data: 0
+    - Name: Quantity
+      Entry: 3
+      Data: 1
+    - Name: ConsumedAfterUse
+      Entry: 5
+      Data: false
     - Name: 
       Entry: 8
       Data: 
@@ -162,10 +120,10 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-    - Name: AllRequiredConditions
+    - Name: RequiredConditions
       Entry: 3
       Data: 0
-    - Name: AnyForbiddenConditions
+    - Name: ForbiddenConditions
       Entry: 3
       Data: 128
     - Name: 
@@ -175,6 +133,92 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 128
+    - Name: $v
+      Entry: 7
+      Data: 7|CapabilityUse, Assembly-CSharp
+    - Name: Value
+      Entry: 3
+      Data: 1
+    - Name: MinimumEffectiveRange
+      Entry: 4
+      Data: 0
+    - Name: MaximumEffectiveRange
+      Entry: 4
+      Data: 1
+    - Name: ItemRequirements
+      Entry: 7
+      Data: 8|System.Collections.Generic.List`1[[ItemRequirement, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: RequiredConditions
+      Entry: 3
+      Data: 0
+    - Name: ForbiddenConditions
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 4096
+    - Name: $v
+      Entry: 7
+      Data: 9|CapabilityUse, Assembly-CSharp
+    - Name: Value
+      Entry: 3
+      Data: 1
+    - Name: MinimumEffectiveRange
+      Entry: 4
+      Data: 0
+    - Name: MaximumEffectiveRange
+      Entry: 4
+      Data: 1
+    - Name: ItemRequirements
+      Entry: 7
+      Data: 10|System.Collections.Generic.List`1[[ItemRequirement, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: RequiredConditions
+      Entry: 3
+      Data: 0
+    - Name: ForbiddenConditions
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
       Entry: 13
       Data: 
     - Name: 
@@ -192,3 +236,4 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+  Sprite: {fileID: 7482667652216324306, guid: 2b88a19093f71c742859324ea7fdfa54, type: 3}

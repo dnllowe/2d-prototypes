@@ -8,6 +8,7 @@ public class WorldState
     public List<Resource> Resources = new List<Resource>();
     public List<Position> Positions = new List<Position>();
     public List<WorldItem> WorldItems = new List<WorldItem>();
+    public List<Character> Characters = new List<Character>();
     public List<uint> Entities = new List<uint>();
     public List<StateMachine> StateMachines = new List<StateMachine>();
 }

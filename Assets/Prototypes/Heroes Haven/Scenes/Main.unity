@@ -236,8 +236,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  Entity:
-    Id: 0
+  EntityId: 0
 --- !u!114 &437835114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -300,7 +299,7 @@ MonoBehaviour:
     Properties:
       Type: 0
       Conditions: 0
-      Capabilities: 0
+      CachedCapabilities: 0
       Material: 0
       Grade: 0
 --- !u!114 &437835117
@@ -329,7 +328,7 @@ MonoBehaviour:
     Properties:
       Type: 0
       Conditions: 0
-      Capabilities: 0
+      CachedCapabilities: 0
       Material: 0
       Grade: 0
 --- !u!1 &482034694
@@ -6192,6 +6191,249 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1168935158
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1168935160}
+  - component: {fileID: 1168935159}
+  m_Layer: 0
+  m_Name: World Component
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1168935159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168935158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f194b6580c87b447adf07777e5c435c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldComponent
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: World
+      Entry: 7
+      Data: 0|World, Assembly-CSharp
+    - Name: Config
+      Entry: 6
+      Data: 
+    - Name: ContainerRegistry
+      Entry: 7
+      Data: 1|ComponentRegistry`1[[Container, Assembly-CSharp]], Assembly-CSharp
+    - Name: Components
+      Entry: 7
+      Data: 2|System.Collections.Generic.Dictionary`2[[System.UInt32, mscorlib],[Container,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 3|System.Collections.Generic.GenericEqualityComparer`1[[System.UInt32,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: HealthRegistry
+      Entry: 7
+      Data: 4|ComponentRegistry`1[[Health, Assembly-CSharp]], Assembly-CSharp
+    - Name: Components
+      Entry: 7
+      Data: 5|System.Collections.Generic.Dictionary`2[[System.UInt32, mscorlib],[Health,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 3
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: ResourceRegistry
+      Entry: 7
+      Data: 6|ComponentRegistry`1[[Resource, Assembly-CSharp]], Assembly-CSharp
+    - Name: Components
+      Entry: 7
+      Data: 7|System.Collections.Generic.Dictionary`2[[System.UInt32, mscorlib],[Resource,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 3
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: PositionRegistry
+      Entry: 7
+      Data: 8|ComponentRegistry`1[[Position, Assembly-CSharp]], Assembly-CSharp
+    - Name: Components
+      Entry: 7
+      Data: 9|System.Collections.Generic.Dictionary`2[[System.UInt32, mscorlib],[Position,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 3
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: WorldItemRegistry
+      Entry: 7
+      Data: 10|ComponentRegistry`1[[WorldItem, Assembly-CSharp]], Assembly-CSharp
+    - Name: Components
+      Entry: 7
+      Data: 11|System.Collections.Generic.Dictionary`2[[System.UInt32, mscorlib],[WorldItem,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 3
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: CharacterRegistry
+      Entry: 7
+      Data: 12|ComponentRegistry`1[[Character, Assembly-CSharp]], Assembly-CSharp
+    - Name: Components
+      Entry: 7
+      Data: 13|System.Collections.Generic.Dictionary`2[[System.UInt32, mscorlib],[Character,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 3
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Entities
+      Entry: 7
+      Data: 14|System.Collections.Generic.HashSet`1[[System.UInt32, mscorlib]], System.Core
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: StateMachines
+      Entry: 7
+      Data: 15|System.Collections.Generic.List`1[[StateMachine, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Events
+      Entry: 7
+      Data: 16|System.Collections.Generic.List`1[[WorldEvent, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: IdProvider
+      Entry: 7
+      Data: 17|IdProvider, Assembly-CSharp
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  CurrentConfig: {fileID: 11400000, guid: ab1a9f676daa79b4db00aca0f69d77c2, type: 2}
+--- !u!4 &1168935160
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168935158}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16.63014, y: -1.86093, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1387582279
 GameObject:
   m_ObjectHideFlags: 0
@@ -6204,7 +6446,6 @@ GameObject:
   - component: {fileID: 1387582280}
   - component: {fileID: 1387582287}
   - component: {fileID: 1387582285}
-  - component: {fileID: 1387582286}
   - component: {fileID: 1387582288}
   m_Layer: 0
   m_Name: Player
@@ -6263,7 +6504,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
-  m_Color: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
+  m_Color: {r: 1, g: 0.65723264, b: 0.65723264, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6325,64 +6566,6 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
---- !u!114 &1387582286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1387582279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7eb2843797d5644c92f12eb29036bfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::StateMachine
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: stateMachine
-      Entry: 7
-      Data: 0|StateMachine, Assembly-CSharp
-    - Name: Config
-      Entry: 6
-      Data: 
-    - Name: CurrentState
-      Entry: 6
-      Data: 
-    - Name: SuspendedTasks
-      Entry: 7
-      Data: 1|System.Collections.Generic.Stack`1[[Task, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: StateHistory
-      Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[StateBase, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-  Config: {fileID: 11400000, guid: ab1a9f676daa79b4db00aca0f69d77c2, type: 2}
 --- !u!114 &1387582287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6404,8 +6587,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  Entity:
-    Id: 5
+  EntityId: 0
 --- !u!114 &1387582288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6674,7 +6856,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.16981131, g: 0.16981131, b: 0.16981131, a: 1}
+  m_Color: {r: 0.5019608, g: 0.5019608, b: 0.5019608, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6720,8 +6902,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  Entity:
-    Id: 7
+  EntityId: 0
 --- !u!114 &1541730174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6784,7 +6965,7 @@ MonoBehaviour:
     Properties:
       Type: 0
       Conditions: 0
-      Capabilities: 0
+      CachedCapabilities: 0
       Material: 0
       Grade: 0
 --- !u!1 &1656978889
@@ -6904,8 +7085,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  Entity:
-    Id: 8
+  EntityId: 0
 --- !u!114 &1656978895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6968,7 +7148,7 @@ MonoBehaviour:
     Properties:
       Type: 0
       Conditions: 0
-      Capabilities: 0
+      CachedCapabilities: 0
       Material: 0
       Grade: 0
 --- !u!114 &1656978897
@@ -6997,7 +7177,7 @@ MonoBehaviour:
     Properties:
       Type: 0
       Conditions: 0
-      Capabilities: 0
+      CachedCapabilities: 0
       Material: 0
       Grade: 0
 --- !u!1 &1921784304
@@ -7117,8 +7297,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  Entity:
-    Id: 9
+  EntityId: 0
 --- !u!4 &1933666154
 Transform:
   m_ObjectHideFlags: 0
@@ -7252,8 +7431,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  Entity:
-    Id: 10
+  EntityId: 0
 --- !u!114 &2098537906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7316,7 +7494,7 @@ MonoBehaviour:
     Properties:
       Type: 0
       Conditions: 0
-      Capabilities: 0
+      CachedCapabilities: 0
       Material: 0
       Grade: 0
 --- !u!114 &2098537908
@@ -7345,7 +7523,7 @@ MonoBehaviour:
     Properties:
       Type: 0
       Conditions: 0
-      Capabilities: 0
+      CachedCapabilities: 0
       Material: 0
       Grade: 0
 --- !u!114 &2098537909
@@ -7412,6 +7590,7 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 482034696}
   - {fileID: 1921784307}
+  - {fileID: 1168935160}
   - {fileID: 1933666154}
   - {fileID: 1387582281}
   - {fileID: 1656978891}

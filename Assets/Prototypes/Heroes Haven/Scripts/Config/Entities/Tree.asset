@@ -20,40 +20,252 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
-  EntityDefinition:
-    Position:
-      Assigned: 1
-      StartX: 0
-      StartY: 0
-      StartZ: 0
-    StateMachine:
-      Assigned: 0
-    WorldItem:
-      Assigned: 0
-      Item: 0
-    Resource:
-      Assigned: 1
-      ExtractableItems:
-      - Item: 2
-        Count: 100
-        TimeToExtract: 2
-        ItemsNeededForExtraction:
-        - Properties:
-            Type: 0
-            Conditions: 0
-            Capabilities: 64
-            Material: 0
-            Grade: 0
-          Quantity: 1
-          MinimumGrade: 0
-      - Item: 4
-        Count: 100
-        TimeToExtract: 2
-        ItemsNeededForExtraction: []
-    Container:
-      Assigned: 0
-      Capacity: 0
-    Health:
-      Assigned: 0
-      MaxHealth: 0
+    SerializationNodes:
+    - Name: EntityDefinition
+      Entry: 7
+      Data: 0|EntityDefinition, Assembly-CSharp
+    - Name: Position
+      Entry: 7
+      Data: 1|PositionDefinition, Assembly-CSharp
+    - Name: Assigned
+      Entry: 5
+      Data: true
+    - Name: StartX
+      Entry: 4
+      Data: 0
+    - Name: StartY
+      Entry: 4
+      Data: 0
+    - Name: StartZ
+      Entry: 4
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: StateMachine
+      Entry: 7
+      Data: 2|StateMachineDefinition, Assembly-CSharp
+    - Name: Assigned
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: WorldItem
+      Entry: 7
+      Data: 3|WorldItemDefinition, Assembly-CSharp
+    - Name: Assigned
+      Entry: 5
+      Data: false
+    - Name: Item
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Resource
+      Entry: 7
+      Data: 4|ResourceDefinition, Assembly-CSharp
+    - Name: Assigned
+      Entry: 5
+      Data: true
+    - Name: ExtractableItems
+      Entry: 7
+      Data: 5|System.Collections.Generic.Dictionary`2[[Items, Assembly-CSharp],[Extraction,
+        Assembly-CSharp]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 6|System.Collections.Generic.EnumEqualityComparer`1[[Items, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 2
+    - Name: $v
+      Entry: 7
+      Data: 7|Extraction, Assembly-CSharp
+    - Name: Produces
+      Entry: 3
+      Data: 2
+    - Name: Count
+      Entry: 3
+      Data: 10
+    - Name: TimeToExtract
+      Entry: 4
+      Data: 10
+    - Name: ItemsNeededForExtraction
+      Entry: 7
+      Data: 8|System.Collections.Generic.List`1[[ItemRequirement, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 9|ItemRequirement, Assembly-CSharp
+    - Name: MinimumRequiredCapabilityValues
+      Entry: 7
+      Data: 10|System.Collections.Generic.Dictionary`2[[ItemCapabilities, Assembly-CSharp],[System.Int32,
+        mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 11|System.Collections.Generic.EnumEqualityComparer`1[[ItemCapabilities,
+        Assembly-CSharp]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 64
+    - Name: $v
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: CachedRequiredCapabilities
+      Entry: 3
+      Data: 64
+    - Name: ItemTypeRequirement
+      Entry: 3
+      Data: 0
+    - Name: RequiredConditions
+      Entry: 3
+      Data: 0
+    - Name: ForbiddenConditions
+      Entry: 3
+      Data: 128
+    - Name: MaterialRequirement
+      Entry: 3
+      Data: 0
+    - Name: MinimumGrade
+      Entry: 3
+      Data: 0
+    - Name: Quantity
+      Entry: 3
+      Data: 1
+    - Name: ConsumedAfterUse
+      Entry: 5
+      Data: false
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 4
+    - Name: $v
+      Entry: 7
+      Data: 12|Extraction, Assembly-CSharp
+    - Name: Produces
+      Entry: 3
+      Data: 4
+    - Name: Count
+      Entry: 3
+      Data: 1
+    - Name: TimeToExtract
+      Entry: 4
+      Data: 2
+    - Name: ItemsNeededForExtraction
+      Entry: 7
+      Data: 13|System.Collections.Generic.List`1[[ItemRequirement, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Container
+      Entry: 7
+      Data: 14|ContainerDefinition, Assembly-CSharp
+    - Name: Assigned
+      Entry: 5
+      Data: false
+    - Name: Capacity
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Health
+      Entry: 7
+      Data: 15|HealthDefinition, Assembly-CSharp
+    - Name: Assigned
+      Entry: 5
+      Data: false
+    - Name: MaxHealth
+      Entry: 3
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  Sprite: {fileID: 0}
+  Tint: {r: 0, g: 0, b: 0, a: 0}

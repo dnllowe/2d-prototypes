@@ -1,7 +1,7 @@
-using UnityEngine.Rendering;
+using System.Collections.Generic;
 
 [System.Serializable]
 public class AnimationMap
 {
-    public SerializedDictionary<Actions, Animation> Animations = new SerializedDictionary<Actions, Animation>();
+    public Dictionary<Actions, Animation> Animations = new Dictionary<Actions, Animation>();
 }

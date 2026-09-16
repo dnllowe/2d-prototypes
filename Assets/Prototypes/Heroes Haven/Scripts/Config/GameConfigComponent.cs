@@ -12,6 +12,9 @@ public class GameConfigComponent : SerializedScriptableObject
     [OdinSerialize, NonSerialized]
     public RecipeDefinitionsComponent RecipeDefinitions;
 
+    public MaterialViewsComponent MaterialViewsComponent;
+    public AnimationsMapComponent Animations;
+
     public GameConfig ToSimulation()
     {
         return new GameConfig

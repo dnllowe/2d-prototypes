@@ -5,5 +5,6 @@ public class CharacterDescription
     public HairColors HairColor;
     public HairStyles HairStyle;
     public BodyTypes BodyType;
+    // Add item types (armor, clothing, etc next, and color for each)
     public int BirthYear;
 }

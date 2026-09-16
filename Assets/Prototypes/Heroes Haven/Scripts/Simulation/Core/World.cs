@@ -9,6 +9,7 @@ public class World
     public ComponentRegistry<Resource> ResourceRegistry = new ComponentRegistry<Resource>();
     public ComponentRegistry<Position> PositionRegistry = new ComponentRegistry<Position>();
     public ComponentRegistry<WorldItem> WorldItemRegistry = new ComponentRegistry<WorldItem>();
+    public ComponentRegistry<Character> CharacterRegistry = new ComponentRegistry<Character>();
     public HashSet<uint> Entities = new HashSet<uint>();
     public List<StateMachine> StateMachines = new List<StateMachine>();
     public List<WorldEvent> Events = new List<WorldEvent>();
@@ -26,6 +27,7 @@ public class World
         foreach (var resource in state.Resources) ResourceRegistry.Components.Add(resource.EntityId, resource);
         foreach (var position in state.Positions) PositionRegistry.Components.Add(position.EntityId, position);
         foreach (var worldItem in state.WorldItems) WorldItemRegistry.Components.Add(worldItem.EntityId, worldItem);
+        foreach (var character in state.Characters) CharacterRegistry.Components.Add(character.EntityId, character);
         foreach (var entity in state.Entities) Entities.Add(entity);
     }
 
@@ -84,6 +86,35 @@ public class World
         }
 
         Events.Add(new WorldEvent { EntityId = id });
+
+        return id;
+    }
+
+    public uint SpawnCharacter(Character character)
+    {
+        var id = IdProvider.GetNextId();
+        Entities.Add(id);
+
+        ContainerRegistry.Components.Add(id, new Container(id)
+        {
+            Capacity = 4,
+        });
+
+        HealthRegistry.Components.Add(id, new Health(id)
+        {
+            Total = character.MaxHealth,
+            Current = character.MaxHealth,
+        });
+
+        PositionRegistry.Components.Add(id, new Position
+        {
+            X = 0,
+            Y = 0,
+            Z = 0, 
+        });
+        StateMachines.Add(new StateMachine(this, id));
+
+        CharacterRegistry.Components.Add(id, character);
 
         return id;
     }
