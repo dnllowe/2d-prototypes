@@ -23,3 +23,7 @@
 ## Locomotion
 - Shoot while crouching
 - Take cover by crouching behind objects
+
+## Weapon Max / Min Values
+- Spread: 10
+- FireRate: 0.01
