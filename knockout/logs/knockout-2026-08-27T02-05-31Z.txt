@@ -1,0 +1,53 @@
+Knock Out — game log
+started 2026-08-27T02:05:31Z
+
+Rules:
+  grid=6 pieces=5
+  setup=free reveal=true placeOnColor=false
+  overlap=block firstPlacerFirst=true
+  win=elimination drawOnOneEach=true
+  actions=fixed knock=simple requireBoardChange=true
+  push=true landing=impact
+  playerBlocks=3
+  spawnBlocks=false
+
+Players: Ink (0) vs Ember (1)
+Opponent: hotseat
+
+--- actions ---
+--- place ---
+Ink(0) place C3
+Ink(0) place D3
+Ink(0) place D4
+Ink(0) place C4
+Ink(0) place B4
+Ember(1) place E1
+Ember(1) place E2
+Ember(1) place F2
+Ember(1) place F1
+Ember(1) place A1
+--- play ---
+Ink(0) block D1
+Ink(0) block C1
+Ink(0) end-turn
+Ember(1) end-turn
+Ink(0) end-turn
+Ember(1) slide A1→B1 right
+Ember(1) slide B1→B3 down knock B4
+Ember(1) block A3
+Ink(0) slide C3→C2 up
+Ink(0) slide C2→D2 right knock E2
+Ink(0) block A2
+Ember(1) slide F2→E2 left knock D2
+Ember(1) slide B3→B3 up knock B2
+Ember(1) slide B3→C3 right knock D3
+Ink(0) slide D4→D2 up
+Ink(0) slide D2→D2 right knock E2
+Ink(0) end-turn
+Ember(1) slide C3→C3 down knock C4
+Ember(1) slide C3→C2 up
+Ember(1) slide C2→C2 right knock D2
+
+--- over ---
+winner=Ember(1) reason=wipeout
+ended 2026-08-27T02:10:26Z
