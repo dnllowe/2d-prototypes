@@ -16,12 +16,23 @@ public class MoveState : State
     public override void Enter()
     {
         base.Enter();
-        Character.Velocity.Current.x = TopSpeed * Direction;
+        CurrentSpeed = 0;
+        Character.Velocity.Current.x = 0;
+    }
+
+    void Update()
+    {
+        if (!Active) return;
+
+        CurrentSpeed += Acceleration * Time.deltaTime;
+        CurrentSpeed = Mathf.Min(TopSpeed, CurrentSpeed);
+        Character.Velocity.Current.x  = CurrentSpeed * Direction;
     }
 
     public override void Exit()
     {
         base.Exit();
+        CurrentSpeed = 0;
         Character.Velocity.Current.x = 0;
     }
 }

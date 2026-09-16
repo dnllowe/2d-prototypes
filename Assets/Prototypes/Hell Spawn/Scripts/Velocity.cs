@@ -8,15 +8,20 @@ public class Velocity : MonoBehaviour
     Rigidbody2D rb;
     public bool Grounded;
     RaycastHit2D[] collisionHits = new RaycastHit2D[8];
+    public LayerMask CollisionLayers;
+    public ContactFilter2D ContactFilter;
+    BoxCollider2D boxCollider;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        Grounded = false;
+        boxCollider = GetComponent<BoxCollider2D>();
+        Grounded = GroundCheck();
     }
 
     void FixedUpdate()
     {
+        Grounded = GroundCheck();
         if (!Grounded) Current.y -= 9.81f * GravityScale * Time.fixedDeltaTime;
 
         var x = GetMoveHorizontal(Current.x * Time.fixedDeltaTime);
@@ -34,13 +39,19 @@ public class Velocity : MonoBehaviour
             : Vector2.left;
 
         var absoluteDistance = Mathf.Abs(distance);
-
         var hitCount = rb.Cast(
             direction,
+            ContactFilter,
             collisionHits,
             absoluteDistance + CollisionBuffer
         );
 
+        // TODO: remove later
+        // Safety check for development
+        if (hitCount >= collisionHits.Length)
+        {
+            Debug.LogWarning($"Hit buffer full ({hitCount}/{collisionHits.Length})! You might be missing colliders.");
+        }
         var allowedDistance = absoluteDistance;
 
         for (int i = 0; i < hitCount; i++)
@@ -62,7 +73,6 @@ public class Velocity : MonoBehaviour
     {
         if (Mathf.Approximately(distance, 0))
         {
-            Grounded = false;
             return 0;
         }
 
@@ -74,9 +84,16 @@ public class Velocity : MonoBehaviour
 
         var hitCount = rb.Cast(
             direction,
+            ContactFilter,
             collisionHits,
             absoluteDistance + CollisionBuffer
         );
+        // TODO: remove later
+        // Safety check for development
+        if (hitCount >= collisionHits.Length)
+        {
+            Debug.LogWarning($"Hit buffer full ({hitCount}/{collisionHits.Length})! You might be missing colliders.");
+        }
 
         var allowedDistance = absoluteDistance;
         var blocked = false;
@@ -100,9 +117,12 @@ public class Velocity : MonoBehaviour
 
         if (blocked) Current.y = 0;
 
-        Grounded = direction == Vector2.down && blocked;
-
         return direction.y * allowedDistance;
     }
 
+    bool GroundCheck()
+    {
+        var hits = Physics2D.RaycastNonAlloc(transform.position, Vector2.down, collisionHits, boxCollider.bounds.extents.y + CollisionBuffer, CollisionLayers);
+        return hits > 0;
+    }
 }

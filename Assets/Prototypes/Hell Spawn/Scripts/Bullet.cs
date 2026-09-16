@@ -20,4 +20,10 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.TryGetComponent<HellSpawn.Health>(out var health)) health.Damage(1);
         Destroy(gameObject);
     }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.TryGetComponent<HellSpawn.Health>(out var health)) health.Damage(1);
+        Destroy(gameObject);
+    }
 }
