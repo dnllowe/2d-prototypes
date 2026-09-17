@@ -4148,14 +4148,21 @@ MonoBehaviour:
     DischargeRate: 0
     DischargeSpeed: 10
     DischargeCount: 1
-    ReloadTime: 1
+    ReloadTime: 2
     SpreadAngle: 0
     ClipSize: 10
+    ChargeTime: 0
+    Charges: 0
   BulletConfig:
     Prefab: {fileID: 6876249604428213824, guid: 1030ebdbe78862b43889b4efb1b87fbb, type: 3}
     Damage: 1
   Gun: {fileID: 0}
   NextFireTime: 0
+  NextDischargeTime: 0
+  ReloadCompleteTime: 0
+  ChargeCompleteTime: 0
+  FireState: 0
+  RemainingClip: 0
 --- !u!114 &1007592912
 MonoBehaviour:
   m_ObjectHideFlags: 0

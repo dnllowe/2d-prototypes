@@ -10,4 +10,6 @@ public class WeaponConfig
     public float ReloadTime;
     public float SpreadAngle;
     public int ClipSize;
+    public float ChargeTime;
+    public bool Charges;
 }
