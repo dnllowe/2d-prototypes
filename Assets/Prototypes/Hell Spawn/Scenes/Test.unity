@@ -3998,8 +3998,8 @@ MonoBehaviour:
   Active: 0
   Direction: 0
   TopSpeed: 10
-  Acceleration: 20
-  CurrentSpeed: 0
+  Acceleration: 9999
+  Deceleration: 50
   Character: {fileID: 0}
 --- !u!114 &799325097
 MonoBehaviour:
@@ -4030,6 +4030,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a88ffe37a81fcb64a99c04e34d4df1fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Velocity
+  TargetX: 0
+  CurrentX: 0
+  AccelerationX: 0
+  OverrideX: 0
+  TargetY: 0
+  CurrentY: 0
+  AccelerationY: 0
+  DecelerationX: 0
+  DecelerationY: 0
+  OverrideY: 0
+  UseOverrideX: 0
+  UseOverrideY: 0
   Current: {x: 0, y: 0}
   Override: {x: 0, y: 0}
   UseOverride: 0
@@ -4114,7 +4126,8 @@ MonoBehaviour:
   Active: 0
   Character: {fileID: 0}
   Direction: {x: 0, y: 0}
-  DashSpeed: 75
+  DashSpeed: 40
+  DashDeceleration: 8
   DashDuration: 0.1
   EndDashTime: 0
 --- !u!1 &1007592909

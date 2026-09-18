@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
         // Locomotion states
         if (Keyboard.current.shiftKey.wasPressedThisFrame)
         {
+            MoveState.Exit();
             if (Keyboard.current.dKey.isPressed) DashState.Direction = Vector2.right;
             else if (Keyboard.current.aKey.isPressed) DashState.Direction = Vector2.left;
             else DashState.Direction = Vector2.right * Character.GetFacingDirection();
@@ -65,6 +66,16 @@ public class PlayerController : MonoBehaviour
             MoveState.Enter();
         }
         if (Keyboard.current.dKey.wasPressedThisFrame)
+        {
+            MoveState.Direction = 1;
+            MoveState.Enter();
+        }
+        if (!DashState.Active && !MoveState.Active && Keyboard.current.aKey.isPressed)
+        {
+            MoveState.Direction = -1;
+            MoveState.Enter();
+        }
+        if (!DashState.Active && !MoveState.Active && Keyboard.current.dKey.isPressed)
         {
             MoveState.Direction = 1;
             MoveState.Enter();

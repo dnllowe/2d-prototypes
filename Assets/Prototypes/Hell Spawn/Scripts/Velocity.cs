@@ -3,6 +3,18 @@ using UnityEngine;
 
 public class Velocity : MonoBehaviour
 {
+    public float TargetX;
+    public float CurrentX;
+    public float AccelerationX;
+    public float OverrideX;
+    public float TargetY;
+    public float CurrentY;
+    public float AccelerationY;
+    public float DecelerationX;
+    public float DecelerationY;
+    public float OverrideY;
+    public float UseOverrideX;
+    public float UseOverrideY;
     public Vector2 Current;
     public Vector2 Override;
     public bool UseOverride;
@@ -25,6 +37,7 @@ public class Velocity : MonoBehaviour
     void FixedUpdate()
     {
         Grounded = GroundCheck();
+        UpdateVelocityX(Time.fixedDeltaTime);
         var actual = UseOverride ? Override : Current;
         if (!Grounded && !UseOverride) Current.y -= 9.81f * GravityScale * Time.fixedDeltaTime;
 
@@ -33,17 +46,35 @@ public class Velocity : MonoBehaviour
         rb.MovePosition(rb.position + new Vector2(x, y));
     }
 
+    public void SetTargetVelocityX(float velocity, float acceleration)
+    {
+        TargetX = velocity;
+        AccelerationX = acceleration;
+    }
+
+    void UpdateVelocityX(float time)
+    {
+        CurrentX = Mathf.Lerp(CurrentX, TargetX, time * AccelerationX);
+        Current.x = CurrentX;
+    }
+
     public void OverrideVelocity(Vector2 velocity)
     {
         UseOverride = true;
+        OverrideX = velocity.x;
+        OverrideY = velocity.y;
         Override = velocity;
-        Current.y = 0;
     }
 
     public void CancelOverride()
     {
         UseOverride = false;
+        Current = Override;
+        CurrentX = Current.x;
+        CurrentY = Current.y;
         Override = Vector2.zero;
+        OverrideX = 0;
+        OverrideY = 0;
     }
 
     float GetMoveHorizontal(float distance)

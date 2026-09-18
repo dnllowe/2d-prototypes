@@ -5,6 +5,7 @@ public class DashState : State
     public HellSpawn.Character Character;
     public Vector2 Direction;
     public float DashSpeed;
+    public float DashDeceleration;
     public float DashDuration;
     public float EndDashTime;
 
@@ -30,5 +31,6 @@ public class DashState : State
         base.Exit();
         Direction = Vector2.zero;
         Character.Velocity.CancelOverride();
+        Character.Velocity.SetTargetVelocityX(0, DashDeceleration);
     }
 }
