@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace HellSpawn
 {
@@ -15,6 +16,15 @@ namespace HellSpawn
             Rb = GetComponent<Rigidbody2D>(); 
             SpriteRenderer = GetComponent<SpriteRenderer>();
             Velocity = GetComponent<Velocity>();
+        }
+
+        public int GetFacingDirection()
+        {
+            var objectScreenPos = Camera.main.WorldToScreenPoint(transform.position);
+            var mouseX = Mouse.current.position.x.value;
+
+            if (objectScreenPos.x > mouseX) return -1;
+            else return 1;
         }
     }
 }

@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public CrouchIdleState CrouchIdleState;
     public JumpState JumpState;
     public MoveState MoveState;
+    public DashState DashState;
 
     void Awake()
     {
@@ -14,6 +15,7 @@ public class PlayerController : MonoBehaviour
         CrouchIdleState = GetComponent<CrouchIdleState>();
         JumpState = GetComponent<JumpState>();
         MoveState = GetComponent<MoveState>();
+        DashState = GetComponent<DashState>();
     }
     
     void Update()
@@ -23,6 +25,13 @@ public class PlayerController : MonoBehaviour
         if (Mouse.current.leftButton.wasReleasedThisFrame) Character.EquippedWeapon.EndUse();
         
         // Locomotion states
+        if (Keyboard.current.shiftKey.wasPressedThisFrame)
+        {
+            if (Keyboard.current.dKey.isPressed) DashState.Direction = Vector2.right;
+            else if (Keyboard.current.aKey.isPressed) DashState.Direction = Vector2.left;
+            else DashState.Direction = Vector2.right * Character.GetFacingDirection();
+            DashState.Enter();
+        }
         if (Keyboard.current.sKey.wasPressedThisFrame) CrouchIdleState.Enter();
         if (Keyboard.current.sKey.wasReleasedThisFrame) CrouchIdleState.Exit();
         if (Keyboard.current.spaceKey.wasPressedThisFrame) JumpState.Enter();

@@ -1,3 +1,8 @@
+## Titles
+- Shell Overdrive
+- Shell Override
+- Shell Break
+
 ## Weapons
 - Sniper: camera pans out, aim from afar, one hit kills
 - Pistol: close up, head shots

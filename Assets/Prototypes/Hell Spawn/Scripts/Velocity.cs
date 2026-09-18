@@ -1,8 +1,11 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Velocity : MonoBehaviour
 {
     public Vector2 Current;
+    public Vector2 Override;
+    public bool UseOverride;
     public float GravityScale = 1;
     public float CollisionBuffer = 0.01f;
     Rigidbody2D rb;
@@ -22,12 +25,25 @@ public class Velocity : MonoBehaviour
     void FixedUpdate()
     {
         Grounded = GroundCheck();
-        if (!Grounded) Current.y -= 9.81f * GravityScale * Time.fixedDeltaTime;
+        var actual = UseOverride ? Override : Current;
+        if (!Grounded && !UseOverride) Current.y -= 9.81f * GravityScale * Time.fixedDeltaTime;
 
-        var x = GetMoveHorizontal(Current.x * Time.fixedDeltaTime);
-        var y = GetMoveVertical(Current.y * Time.fixedDeltaTime);
-
+        var x = GetMoveHorizontal(actual.x * Time.fixedDeltaTime);
+        var y = GetMoveVertical(actual.y * Time.fixedDeltaTime);
         rb.MovePosition(rb.position + new Vector2(x, y));
+    }
+
+    public void OverrideVelocity(Vector2 velocity)
+    {
+        UseOverride = true;
+        Override = velocity;
+        Current.y = 0;
+    }
+
+    public void CancelOverride()
+    {
+        UseOverride = false;
+        Override = Vector2.zero;
     }
 
     float GetMoveHorizontal(float distance)
@@ -116,6 +132,7 @@ public class Velocity : MonoBehaviour
         }
 
         if (blocked) Current.y = 0;
+        if (blocked) Override.y = 0;
 
         return direction.y * allowedDistance;
     }

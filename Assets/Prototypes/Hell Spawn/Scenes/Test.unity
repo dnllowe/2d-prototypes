@@ -3825,6 +3825,7 @@ GameObject:
   - component: {fileID: 799325097}
   - component: {fileID: 799325096}
   - component: {fileID: 799325098}
+  - component: {fileID: 799325100}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -3981,6 +3982,7 @@ MonoBehaviour:
   CrouchIdleState: {fileID: 0}
   JumpState: {fileID: 0}
   MoveState: {fileID: 0}
+  DashState: {fileID: 0}
 --- !u!114 &799325096
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4029,6 +4031,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Velocity
   Current: {x: 0, y: 0}
+  Override: {x: 0, y: 0}
+  UseOverride: 0
   GravityScale: 4
   CollisionBuffer: 0.01
   Grounded: 0
@@ -4095,6 +4099,24 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.8, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &799325100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799325088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfb361e399d98a94c83d0d3c8a6c4b5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DashState
+  Active: 0
+  Character: {fileID: 0}
+  Direction: {x: 0, y: 0}
+  DashSpeed: 75
+  DashDuration: 0.1
+  EndDashTime: 0
 --- !u!1 &1007592909
 GameObject:
   m_ObjectHideFlags: 0
@@ -4163,6 +4185,7 @@ MonoBehaviour:
   ChargeCompleteTime: 0
   FireState: 0
   RemainingClip: 0
+  RemainingDischarge: 0
 --- !u!114 &1007592912
 MonoBehaviour:
   m_ObjectHideFlags: 0
