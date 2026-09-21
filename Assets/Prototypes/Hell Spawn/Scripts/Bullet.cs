@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public int Damage;
+    public float Knockback;
     public float Speed;
     public Rigidbody2D Rb;
 
@@ -17,13 +19,17 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.TryGetComponent<HellSpawn.Health>(out var health)) health.Damage(1);
+        if (collision.gameObject.TryGetComponent<Velocity>(out var velocity)) velocity.SetInstantForce(Rb.transform.right, Knockback);
+        else if (collision.gameObject.TryGetComponent<HellSpawn.Character>(out var character)) character.Velocity.SetInstantForce(Rb.transform.right, Knockback);
+        if (collision.gameObject.TryGetComponent<HellSpawn.Health>(out var health)) health.Damage(Damage);
         Destroy(gameObject);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent<HellSpawn.Health>(out var health)) health.Damage(1);
+        if (collision.gameObject.TryGetComponent<Velocity>(out var velocity)) velocity.SetInstantForce(Rb.transform.right, Knockback);
+        else if (collision.gameObject.TryGetComponent<HellSpawn.Character>(out var character)) character.Velocity.SetInstantForce(Rb.transform.right, Knockback);
+        if (collision.gameObject.TryGetComponent<HellSpawn.Health>(out var health)) health.Damage(Damage);
         Destroy(gameObject);
     }
 }

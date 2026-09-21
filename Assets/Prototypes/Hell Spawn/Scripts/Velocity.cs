@@ -75,6 +75,13 @@ public class Velocity : MonoBehaviour
         OverrideY = 0;
     }
 
+    public void SetInstantForce(Vector2 direction, float force)
+    {
+        CurrentX = direction.x * force;
+        CurrentY = direction.y * force;
+        AccelerationX = InertiaAccelerationX;
+    }
+
     float GetMoveHorizontal(float distance)
     {
         if (Mathf.Approximately(distance, 0)) return 0;

@@ -80,6 +80,8 @@ public class FireWeaponState : State
     {
         var bulletObject = Instantiate(BulletConfig.Prefab);  
         var bullet = bulletObject.GetComponent<Bullet>(); 
+        bullet.Damage = BulletConfig.Damage;
+        bullet.Knockback = BulletConfig.TargetKnockBackGrounded;
         bullet.Speed = WeaponConfig.DischargeSpeed;
         bulletObject.transform.position = Gun.DischargePoint.position;
         bulletObject.transform.rotation = Quaternion.Euler(Gun.DischargePoint.rotation.eulerAngles + new Vector3(0, 0, random.NextFloat(-WeaponConfig.SpreadAngle, WeaponConfig.SpreadAngle)));
@@ -92,11 +94,7 @@ public class FireWeaponState : State
         }
         else
         {
-            var newVelocity = character.Back * BulletConfig.AttackerKnockBackGrounded;
-            character.Velocity.CurrentX = newVelocity.x;
-            character.Velocity.CurrentY = newVelocity.y;
-            character.Velocity.AccelerationX = character.Velocity.AccelerationX = character.Velocity.InertiaAccelerationX;
-
+            character.Velocity.SetInstantForce(character.Back, BulletConfig.AttackerKnockBackGrounded);
             RemainingClip--;
 
             if (RemainingClip <= 0)
