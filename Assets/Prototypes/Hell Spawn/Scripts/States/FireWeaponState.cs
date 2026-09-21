@@ -10,6 +10,7 @@ public enum FireState
 
 public class FireWeaponState : State
 {
+    [SerializeField] HellSpawn.Character character;
     public WeaponConfig WeaponConfig;
     public BulletConfig BulletConfig;
     public Gun Gun;
@@ -91,17 +92,23 @@ public class FireWeaponState : State
         }
         else
         {
+            var newVelocity = character.Back * BulletConfig.AttackerKnockBackGrounded;
+            character.Velocity.CurrentX = newVelocity.x;
+            character.Velocity.CurrentY = newVelocity.y;
+            character.Velocity.AccelerationX = character.Velocity.AccelerationX = character.Velocity.InertiaAccelerationX;
+
             RemainingClip--;
+
             if (RemainingClip <= 0)
             {
                 RemainingClip = 0;
                 FireState = FireState.Reloading;
                 ReloadCompleteTime = Time.time + WeaponConfig.ReloadTime;
+
                 return;
             }
         }
     }
-
 
     void HandleDischarge()
     {

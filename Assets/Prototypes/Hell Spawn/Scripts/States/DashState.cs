@@ -20,6 +20,7 @@ public class DashState : State
         EndDashTime = Time.time + DashDuration;
         Character.Velocity.OverrideVelocity(Direction * DashSpeed);
     }
+
     void FixedUpdate()
     {
         if (!Active) return;

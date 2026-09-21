@@ -9,6 +9,18 @@ namespace HellSpawn
         public Weapon EquippedWeapon;
         public SpriteRenderer SpriteRenderer;
         public Velocity Velocity;
+        public Vector2 Forward 
+        {
+            get 
+            {
+                var mousePosition = Mouse.current.position.value;
+                var objectScreenPos = Camera.main.WorldToScreenPoint(Rb.position);
+                var difference = new Vector2(mousePosition.x - objectScreenPos.x, mousePosition.y - objectScreenPos.y);
+                return difference.normalized;
+            }
+        }
+
+        public Vector2 Back => -1 * Forward;
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Awake()
@@ -20,7 +32,7 @@ namespace HellSpawn
 
         public int GetFacingDirection()
         {
-            var objectScreenPos = Camera.main.WorldToScreenPoint(transform.position);
+            var objectScreenPos = Camera.main.WorldToScreenPoint(Rb.position);
             var mouseX = Mouse.current.position.x.value;
 
             if (objectScreenPos.x > mouseX) return -1;

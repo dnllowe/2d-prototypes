@@ -6,6 +6,7 @@ public class Velocity : MonoBehaviour
     public float TargetX;
     public float CurrentX;
     public float AccelerationX;
+    public float InertiaAccelerationX;
     public float OverrideX;
     public float TargetY;
     public float CurrentY;
@@ -15,7 +16,6 @@ public class Velocity : MonoBehaviour
     public float OverrideY;
     public float UseOverrideX;
     public float UseOverrideY;
-    public Vector2 Current;
     public Vector2 Override;
     public bool UseOverride;
     public float GravityScale = 1;
@@ -38,8 +38,8 @@ public class Velocity : MonoBehaviour
     {
         Grounded = GroundCheck();
         UpdateVelocityX(Time.fixedDeltaTime);
-        var actual = UseOverride ? Override : Current;
-        if (!Grounded && !UseOverride) Current.y -= 9.81f * GravityScale * Time.fixedDeltaTime;
+        var actual = UseOverride ? Override : new Vector2(CurrentX, CurrentY);
+        if (!Grounded && !UseOverride) CurrentY -= 9.81f * GravityScale * Time.fixedDeltaTime;
 
         var x = GetMoveHorizontal(actual.x * Time.fixedDeltaTime);
         var y = GetMoveVertical(actual.y * Time.fixedDeltaTime);
@@ -55,7 +55,6 @@ public class Velocity : MonoBehaviour
     void UpdateVelocityX(float time)
     {
         CurrentX = Mathf.Lerp(CurrentX, TargetX, time * AccelerationX);
-        Current.x = CurrentX;
     }
 
     public void OverrideVelocity(Vector2 velocity)
@@ -68,10 +67,9 @@ public class Velocity : MonoBehaviour
 
     public void CancelOverride()
     {
+        CurrentX = OverrideX;
+        CurrentY = OverrideY;
         UseOverride = false;
-        Current = Override;
-        CurrentX = Current.x;
-        CurrentY = Current.y;
         Override = Vector2.zero;
         OverrideX = 0;
         OverrideY = 0;
@@ -162,7 +160,7 @@ public class Velocity : MonoBehaviour
             }
         }
 
-        if (blocked) Current.y = 0;
+        if (blocked) CurrentY = 0;
         if (blocked) Override.y = 0;
 
         return direction.y * allowedDistance;

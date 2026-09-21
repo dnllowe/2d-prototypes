@@ -17,7 +17,7 @@ public class JumpState : State
     {
         base.Enter();
         if (RemainingJumps <= 0) return;
-        Character.Velocity.Current.y = JumpForce;
+        Character.Velocity.CurrentY = JumpForce;
         RemainingJumps--;
     }
 

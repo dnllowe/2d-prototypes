@@ -4178,6 +4178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FireWeaponState
   Active: 0
+  character: {fileID: 799325092}
   WeaponConfig:
     FireRate: 0.5
     DischargeRate: 0
@@ -4191,6 +4192,10 @@ MonoBehaviour:
   BulletConfig:
     Prefab: {fileID: 6876249604428213824, guid: 1030ebdbe78862b43889b4efb1b87fbb, type: 3}
     Damage: 1
+    AttackerKnockBackGrounded: 1
+    AttackerKnockBackAirborne: 1
+    TargetKnockBackGrounded: 1
+    TargetKnockBackAirborne: 1
   Gun: {fileID: 0}
   NextFireTime: 0
   NextDischargeTime: 0
