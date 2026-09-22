@@ -1,11 +1,11 @@
 using UnityEngine;
 
+[ExecuteAlways]
 public class MaterialController : MonoBehaviour
 {
     SpriteRenderer spriteRenderer;
-    Material material;
-
-
+    // Material material;
+    public Color defaultColor;
     Color originalColor;
     float originalAlpha;
     Color originalGlowColor;
@@ -14,29 +14,52 @@ public class MaterialController : MonoBehaviour
     Color originalOutlineColor;
     float originalOutlineAlpha;
     int originalOutlineGlowIntensity;
+    static MaterialPropertyBlock sharedPropertyBlock;
 
     void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        material = spriteRenderer.material;
+        if (sharedPropertyBlock == null)
+        {
+            sharedPropertyBlock = new MaterialPropertyBlock();
+        }
+        EnsureMaterial();
         GetInitialValues();
+    }
+
+    void OnValidate()
+    {
+        EnsureMaterial();
+        SetColor(defaultColor);
+    }
+
+    public void EnsureMaterial()
+    {
+        if (!spriteRenderer) spriteRenderer = GetComponent<SpriteRenderer>();
+        if (sharedPropertyBlock == null)
+        {
+            sharedPropertyBlock = new MaterialPropertyBlock();
+        }
     }
 
     void GetInitialValues()
     {
-        originalColor = material.GetColor("_Color");
-        originalAlpha = material.GetFloat("_Alpha");
-        originalGlowColor = material.GetColor("_GlowColor");
-        originalGlowIntensity = material.GetInt("_Glow");
-        originalGlobalGlowIntensity = material.GetInt("_GlowGlobal");
-        originalOutlineColor = material.GetColor("_AlphaOutlineColor");
-        originalOutlineAlpha = material.GetFloat("_AlphaOutlineBlend");
-        originalOutlineGlowIntensity = material.GetInt("_AlphaOutlineGlow");
+        ReservePropertyBlock();
+        originalColor = sharedPropertyBlock.GetColor("_Color");
+        originalAlpha = sharedPropertyBlock.GetFloat("_Alpha");
+        originalGlowColor = sharedPropertyBlock.GetColor("_GlowColor");
+        originalGlowIntensity = sharedPropertyBlock.GetInt("_Glow");
+        originalGlobalGlowIntensity = sharedPropertyBlock.GetInt("_GlowGlobal");
+        originalOutlineColor = sharedPropertyBlock.GetColor("_OutlineColor");
+        originalOutlineAlpha = sharedPropertyBlock.GetFloat("_OutlineAlpha");
+        originalOutlineGlowIntensity = sharedPropertyBlock.GetInt("_OutlineGlow");
+        SetPropertyBlock();
     }
 
     public void SetColor(Color color)
     {
-        material.SetColor("_Color", color);
+        ReservePropertyBlock();
+        sharedPropertyBlock.SetColor("_Color", color);
+        SetPropertyBlock();
     }
 
     public void TweenColor(Color color, float completion)
@@ -56,7 +79,9 @@ public class MaterialController : MonoBehaviour
 
     public void SetAlpha(float value)
     {
-        material.SetFloat("_Alpha", value);
+        ReservePropertyBlock();
+        sharedPropertyBlock.SetFloat("_Alpha", value);
+        SetPropertyBlock();
     }
 
     public void ResetAlpha()
@@ -66,7 +91,9 @@ public class MaterialController : MonoBehaviour
 
     public void SetGlowColor(Color color)
     {
-        material.SetColor("_GlowColor", color);
+        ReservePropertyBlock();
+        sharedPropertyBlock.SetColor("_GlowColor", color);
+        SetPropertyBlock();
     }
 
     public void ResetGlowColor()
@@ -76,7 +103,9 @@ public class MaterialController : MonoBehaviour
 
     public void SetGlowIntensity(int value)
     {
-        material.SetInt("_Glow", value);
+        ReservePropertyBlock();
+        sharedPropertyBlock.SetInt("_Glow", value);
+        SetPropertyBlock();
     }
 
     public void ResetGlowIntensity()
@@ -86,7 +115,9 @@ public class MaterialController : MonoBehaviour
 
     public void SetGlobalGlowIntensity(int value)
     {
-        material.SetInt("_GlowGlobal", value);
+        ReservePropertyBlock();
+        sharedPropertyBlock.SetInt("_GlowGlobal", value);
+        SetPropertyBlock();
     }
 
     public void ResetGlobalGlowIntensity()
@@ -96,7 +127,9 @@ public class MaterialController : MonoBehaviour
 
     public void SetOutlineColor(Color color)
     {
-        material.SetColor("_AlphaOutlineColor", color);
+        ReservePropertyBlock();
+        sharedPropertyBlock.SetColor("_OutlineColor", color);
+        SetPropertyBlock();
     }
 
     public void ResetOutlineColor()
@@ -106,7 +139,9 @@ public class MaterialController : MonoBehaviour
 
     public void SetOutlineAlpha(float value)
     {
-        material.SetFloat("_AlphaOutlineBlend", value);
+        ReservePropertyBlock();
+        sharedPropertyBlock.SetFloat("_OutlineAlpha", value);
+        SetPropertyBlock();
     }
 
     public void ResetOutlineAlpha()
@@ -116,7 +151,9 @@ public class MaterialController : MonoBehaviour
 
     public void SetOutlineGlowIntensity(int value)
     {
-        material.SetInt("_AlphaOutlineGlow", value);
+        ReservePropertyBlock();
+        sharedPropertyBlock.SetInt("_OutlineGlow", value);
+        SetPropertyBlock();
     }
 
     public void ResetOutlineGlowIntensity()
@@ -133,5 +170,16 @@ public class MaterialController : MonoBehaviour
         ResetGlobalGlowIntensity();
         ResetOutlineColor();
         ResetOutlineAlpha();
+    }
+
+    void ReservePropertyBlock()
+    {
+        sharedPropertyBlock.Clear();
+        spriteRenderer.GetPropertyBlock(sharedPropertyBlock);
+    }
+
+    void SetPropertyBlock()
+    {
+        spriteRenderer.SetPropertyBlock(sharedPropertyBlock);
     }
 }
