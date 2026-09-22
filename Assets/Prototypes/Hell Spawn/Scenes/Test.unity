@@ -3826,6 +3826,9 @@ GameObject:
   - component: {fileID: 799325096}
   - component: {fileID: 799325098}
   - component: {fileID: 799325100}
+  - component: {fileID: 799325102}
+  - component: {fileID: 799325101}
+  - component: {fileID: 799325103}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -3859,7 +3862,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 3ff933eea4fba3c4ba90fcc8396b1531, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3883,7 +3886,7 @@ SpriteRenderer:
   m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: -9095717837082945937, guid: e77298679d21129408158e5944dbbe60, type: 3}
-  m_Color: {r: 0.6333333, g: 0, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4130,6 +4133,48 @@ MonoBehaviour:
   DashDeceleration: 8
   DashDuration: 0.1
   EndDashTime: 0
+--- !u!114 &799325101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799325088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 668311f308e1a22498c18a61a82a998b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FlashOnDamage
+  FlashColor: {r: 1, g: 1, b: 1, a: 0.5019608}
+  FlashDuration: 0.5
+  Remaining: 0
+--- !u!114 &799325102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799325088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f12201b25be753044b8ee9c40c8b400e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MaterialController
+--- !u!114 &799325103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799325088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28831ed723ef0a84eb8d47327d4543e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HellSpawn.Health
+  Current: 0
+  Total: 10
+  DestroyOnDepleted: 0
 --- !u!1 &1007592909
 GameObject:
   m_ObjectHideFlags: 0
@@ -4338,6 +4383,8 @@ GameObject:
   - component: {fileID: 1043719193}
   - component: {fileID: 1043719191}
   - component: {fileID: 1043719192}
+  - component: {fileID: 1043719195}
+  - component: {fileID: 1043719194}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
@@ -4371,7 +4418,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: f0b6a2a2be0536846b48a6c86168bf11, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4395,7 +4442,7 @@ SpriteRenderer:
   m_SortingOrder: 2
   m_MaskInteraction: 0
   m_Sprite: {fileID: -9095717837082945937, guid: e77298679d21129408158e5944dbbe60, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4555,6 +4602,33 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &1043719194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043719186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 668311f308e1a22498c18a61a82a998b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FlashOnDamage
+  FlashColor: {r: 1, g: 1, b: 1, a: 0.5019608}
+  FlashDuration: 0.5
+  Remaining: 0
+--- !u!114 &1043719195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043719186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f12201b25be753044b8ee9c40c8b400e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MaterialController
 --- !u!1 &1928848379
 GameObject:
   m_ObjectHideFlags: 0
