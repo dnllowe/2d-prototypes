@@ -41,14 +41,6 @@ public class MaterialController : MonoBehaviour
 
     public void TweenColor(Color color, float completion)
     {
-        // Example color.r = 1, original.r = 0
-        // color.a = 0.5, original.a = 1
-        // Completion 1: tweened.R = 0.5
-        // Completion 0.75:
-        // Completion 0.5:
-        // Completion 0.25:
-        // Completion 0:
-
         var tweenedR = (color.r * completion * color.a) + originalColor.r;
         var tweenedG = (color.g * completion * color.a) + originalColor.g;
         var tweenedB = (color.b * completion * color.a) + originalColor.b;

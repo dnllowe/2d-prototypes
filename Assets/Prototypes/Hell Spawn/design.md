@@ -5,6 +5,7 @@
 
 ## Inspiration
 - Devil May Cry
+- Marvel's Spider Man
 - Control
 - Celeste
 - BlazBlue Entropy Effect
